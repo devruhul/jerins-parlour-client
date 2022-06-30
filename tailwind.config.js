@@ -16,6 +16,9 @@ module.exports = {
         check: "url('/icons/check.svg')",
         landscape: "url('/images/landscape/2.jpg')",
       }),
+      colors: {
+        'light-tomato': '#FFF8F5'
+      },
     },
   },
   variants: {
