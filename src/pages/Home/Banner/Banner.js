@@ -1,5 +1,5 @@
 import React from 'react';
-import facialWomen from '../../../assets/Image/facial-women.png'
+import facialWomen from '../../../assets/images/facial-women.png'
 
 const Banner = () => {
     return (

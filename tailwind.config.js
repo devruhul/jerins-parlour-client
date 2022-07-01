@@ -17,7 +17,8 @@ module.exports = {
         landscape: "url('/images/landscape/2.jpg')",
       }),
       colors: {
-        'light-tomato': '#FFF8F5'
+        "light-tomato": "#FFF8F5",
+        "span-text": "#F63E7B",
       },
     },
   },
