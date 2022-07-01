@@ -1,5 +1,5 @@
 import React from 'react';
-import jplogo from '../../../assets/Image/jp-logo.png'
+import jplogo from '../../../assets/images/jp-logo.png'
 import { stack as Menu } from 'react-burger-menu'
 import { Link } from 'react-router-dom';
 
