@@ -44,9 +44,9 @@ const Services = () => {
                     )}
             </div>
             <div className='py-8'>
-                <a href="/#" className="uppercase my-6 py-2 px-4 rounded-lg bg-pink-500 border-2 border-transparent text-white text-md mr-4 hover:bg-pink-400">
+                <button className="uppercase my-6 py-2 px-4 rounded-lg bg-pink-500 border-2 border-transparent text-white text-md mr-4 hover:bg-pink-400">
                     Explore More
-                </a>
+                </button>
             </div>
         </div>
 

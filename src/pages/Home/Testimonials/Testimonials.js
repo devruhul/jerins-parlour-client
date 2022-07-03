@@ -30,7 +30,7 @@ const reviews = [
 
 const Testimonials = () => {
     return (
-        <div className='my-12 space-y-10 '>
+        <div className='mt-12 space-y-10 '>
             <h3 className='text-4xl font-bold my-1'><span className="text-span-text">Testimonials</span></h3>
             <div class="w-full flex flex-col md:flex-row gap-4 mb-8 md:mb-0 flex-between items-center p-8">
                 {
