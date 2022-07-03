@@ -77,6 +77,12 @@ const Header = () => {
                                     <Link to="/contact" className="text-gray-500  hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-lg font-medium" >
                                         Contact
                                     </Link>
+                                    <Link to="/login" className="text-gray-500  hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-lg font-medium" >
+                                        Login
+                                    </Link>
+                                    <Link to="/register" className="text-gray-500  hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-lg font-medium" >
+                                        Register
+                                    </Link>
                                 </div>
                             </div>
                         </div>
