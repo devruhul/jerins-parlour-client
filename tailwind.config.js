@@ -18,6 +18,7 @@ module.exports = {
       }),
       colors: {
         "light-tomato": "#FFF8F5",
+        "footer-bg": "#F63E7B",
         "span-text": "#F63E7B",
       },
     },
