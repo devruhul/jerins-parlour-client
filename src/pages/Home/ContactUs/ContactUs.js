@@ -26,7 +26,7 @@ const ContactUs = () => {
                     </div>
                     <div className="col-span-2 lg:col-span-1">
                         <div className=" relative ">
-                            <input type="text" id="contact-form-email" className=" rounded-lg border-transparent flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Phone Number" />
+                            <input type="text" id="contact-form-email" className="flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Phone Number" />
                         </div>
                     </div>
                     <div className="col-span-2">
