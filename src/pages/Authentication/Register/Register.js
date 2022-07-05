@@ -7,8 +7,9 @@ const Register = () => {
     const signUpUsingGoogle = () => {
         signInWithGoogle();
     }
-
-
+    // const signUpUsingFacebook = () => {
+    //     signInWithFacebook();
+    // }
 
     return (
         <div className="flex flex-col w-full mx-auto max-w-md px-4 py-8 bg-white rounded-lg shadow dark:bg-gray-800 sm:px-6 md:px-8 lg:px-10">
@@ -30,7 +31,7 @@ const Register = () => {
                     <div className="flex flex-col mb-3">
                         <div className="flex relative ">
                             <span className="rounded-l-md inline-flex  items-center px-3 border-t bg-white border-l border-b  border-gray-300 text-gray-500 shadow-sm text-sm">
-                                <i class="fa-solid fa-id-card"></i>
+                                <i className="fa-solid fa-id-card"></i>
                             </span>
                             <input type="text" id="sign-up-name" className=" rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Your Name" />
                         </div>
