@@ -1,8 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import useFirebase from '../../hooks/useFirebase';
 const Register = () => {
-    return (
+    const { signInWithGoogle } = useFirebase();
 
+    const signUpUsingGoogle = () => {
+        signInWithGoogle();
+    }
+
+
+
+    return (
         <div className="flex flex-col w-full mx-auto max-w-md px-4 py-8 bg-white rounded-lg shadow dark:bg-gray-800 sm:px-6 md:px-8 lg:px-10">
             <div className="self-center mb-6 text-3xl font-bold text-gray-600 sm:text-2xl dark:text-white">
                 Create an account
@@ -12,7 +20,7 @@ const Register = () => {
                     <i className="fa-brands fa-facebook mr-2"></i>
                     Facebook
                 </button>
-                <button type="button" className="py-2 px-4 flex justify-center items-center  bg-red-600 hover:bg-red-700 focus:ring-red-500 focus:ring-offset-red-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
+                <button onClick={signUpUsingGoogle} type="button" className="py-2 px-4 flex justify-center items-center  bg-red-600 hover:bg-red-700 focus:ring-red-500 focus:ring-offset-red-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
                     <i className="fa-brands fa-google mr-2"></i>
                     Google
                 </button>

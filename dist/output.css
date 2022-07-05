@@ -744,6 +744,10 @@ video {
   display: inline-flex !important;
 }
 
+.table {
+  display: table !important;
+}
+
 .grid {
   display: grid !important;
 }
