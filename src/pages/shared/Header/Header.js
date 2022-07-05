@@ -2,8 +2,10 @@ import React from 'react';
 import jplogo from '../../../assets/images/jp-logo.png'
 import { stack as Menu } from 'react-burger-menu'
 import { Link } from 'react-router-dom';
+import useFirebase from '../../hooks/useFirebase';
 
 const Header = () => {
+    const { parlourUser, parlourUserlogout } = useFirebase()
 
     const isMenuOpen = function (state) {
         return state.isOpen;
@@ -77,12 +79,17 @@ const Header = () => {
                                     <Link to="/contact" className="text-gray-500  hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-lg font-medium" >
                                         Contact
                                     </Link>
-                                    <Link to="/login" className="text-gray-500  hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-lg font-medium" >
-                                        Login
-                                    </Link>
-                                    <Link to="/register" className="text-gray-500  hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-lg font-medium" >
-                                        Register
-                                    </Link>
+                                    {parlourUser.email ? <button
+                                        onClick={parlourUserlogout} className="text-gray-500  hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-lg font-medium" >
+                                        Logout
+                                    </button> : <div>
+                                        <Link to="/login" className="text-gray-500  hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-lg font-medium" >
+                                            Login
+                                        </Link>
+                                        <Link to="/register" className="text-gray-500  hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-lg font-medium" >
+                                            Register
+                                        </Link>
+                                    </div>}
                                 </div>
                             </div>
                         </div>

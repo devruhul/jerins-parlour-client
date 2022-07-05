@@ -1,9 +1,37 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import useFirebase from '../../hooks/useFirebase';
 
 const Login = () => {
-    return (
+    const [loginData, setLoginData] = useState({})
+    const { signInParlourUser, signInWithGoogle } = useFirebase()
 
+    const location = useLocation()
+    // handle login text and password field
+    const handleOnChange = e => {
+        const emailText = e.target.name
+        const passValue = e.target.value
+
+        setLoginData({
+            ...loginData,
+            [emailText]: passValue
+        })
+    }
+    // handle login submit
+    const handleloginSubmit = e => {
+        e.preventDefault()
+        // sign in user with firebase
+        signInParlourUser(loginData.email, loginData.password, location)
+        e.target.reset()
+        alert('Login Successfully')
+    }
+
+    // handle google sign in
+    const handleGoogleSignin = () => {
+        signInWithGoogle(location)
+    }
+
+    return (
         <div className="flex flex-col w-full mx-auto max-w-md px-4 py-8 bg-white rounded-lg shadow dark:bg-gray-800 sm:px-6 md:px-8 lg:px-10">
             <div className="self-center mb-6 text-3xl font-bold text-gray-600 sm:text-2xl dark:text-white">
                 Login To Your Account
@@ -13,19 +41,19 @@ const Login = () => {
                     <i className="fa-brands fa-facebook mr-2"></i>
                     Facebook
                 </button>
-                <button type="button" className="py-2 px-4 flex justify-center items-center  bg-red-600 hover:bg-red-700 focus:ring-red-500 focus:ring-offset-red-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
+                <button onClick={handleGoogleSignin} type="button" className="py-2 px-4 flex justify-center items-center  bg-red-600 hover:bg-red-700 focus:ring-red-500 focus:ring-offset-red-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
                     <i className="fa-brands fa-google mr-2"></i>
                     Google
                 </button>
             </div>
             <div className="mt-8">
-                <form action="#" autoComplete="off">
+                <form autoComplete="off" onSubmit={handleloginSubmit}>
                     <div className="flex flex-col mb-2">
                         <div className="flex relative ">
                             <span className="rounded-l-md inline-flex  items-center px-3 border-t bg-white border-l border-b  border-gray-300 text-gray-500 shadow-sm text-sm">
                                 <i className="fa-solid fa-envelope"></i>
                             </span>
-                            <input type="text" id="sign-in-email" className=" rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Your Email" />
+                            <input type="text" name="email" id="sign-in-email" onBlur={handleOnChange} className=" rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Your Email" />
                         </div>
                     </div>
                     <div className="flex flex-col mb-6">
@@ -33,7 +61,7 @@ const Login = () => {
                             <span className="rounded-l-md inline-flex  items-center px-3 border-t bg-white border-l border-b  border-gray-300 text-gray-500 shadow-sm text-sm">
                                 <i className="fa-solid fa-lock"></i>
                             </span>
-                            <input type="password" id="sign-in-password" className=" rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Your Password" />
+                            <input type="password" name="password" onBlur={handleOnChange} id="sign-in-password" className=" rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Your Password" />
                         </div>
                     </div>
                     <div className="flex items-center mb-6 -mt-4">
