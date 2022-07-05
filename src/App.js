@@ -10,6 +10,7 @@ import Header from './pages/shared/Header/Header';
 import NotFound from './pages/Home/NotFound/NotFound';
 import Register from './pages/Authentication/Register/Register';
 import Login from './pages/Authentication/Login/Login';
+import ExploreServices from './pages/Home/ExploreServices/ExploreServices';
 
 function App() {
   return (
@@ -17,7 +18,9 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="services" element={<Services />} />
+        <Route path="services" element={<Services />} >
+        </Route>
+        <Route path="exploreservices" element={<ExploreServices />} />
         <Route path="feature" element={<Feature />} />
         <Route path="testimonials" element={<Testimonials />} />
         <Route path="contact" element={<ContactUs />} />

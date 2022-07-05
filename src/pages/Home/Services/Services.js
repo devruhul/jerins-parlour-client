@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link, Outlet } from 'react-router-dom';
 import service1 from '../../../assets/icon/service-1.png'
 import service2 from '../../../assets/icon/service-2.png'
 import service3 from '../../../assets/icon/service-3.png'
@@ -44,12 +45,12 @@ const Services = () => {
                     )}
             </div>
             <div className='py-8'>
-                <button className="uppercase my-6 py-2 px-4 rounded-lg bg-pink-500 border-2 border-transparent text-white text-md mr-4 hover:bg-pink-400">
+                <Link to="/exploreservices" className="uppercase my-6 py-2 px-4 rounded-lg bg-pink-500 border-2 border-transparent text-white text-md mr-4 hover:bg-pink-400">
                     Explore More
-                </button>
+                </Link>
             </div>
+            <Outlet />
         </div>
-
 
     );
 };
