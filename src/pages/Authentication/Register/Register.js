@@ -44,49 +44,49 @@ const Register = () => {
                 Create an account
             </div>
             <div className="mt-4">
-                <form  autoComplete="off" onSubmit={signUpUsingEmail}>
-                    <div className="flex flex-col mb-3">
+                <form autoComplete="off" onSubmit={signUpUsingEmail}>
+                    <div className="flex flex-col mb-4">
                         <div className="flex relative ">
                             <span className="rounded-l-md inline-flex  items-center px-3 border-t bg-white border-l border-b  border-gray-300 text-gray-500 shadow-sm text-sm">
                                 <i className="fa-solid fa-id-card"></i>
                             </span>
-                            <input type="text" name="name" onBlur={handleOnBlur} id="sign-up-name" className=" rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Your Name" />
+                            <input type="text" name="name" onBlur={handleOnBlur} id="sign-up-name" className="flex-1 appearance-none border border-pink-300 w-full py-3 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Your Name" />
                         </div>
                     </div>
 
-                    <div className="flex flex-col mb-3">
+                    <div className="flex flex-col mb-4">
                         <div className="flex relative ">
                             <span className="rounded-l-md inline-flex  items-center px-3 border-t bg-white border-l border-b  border-gray-300 text-gray-500 shadow-sm text-sm">
                                 <i className="fa-solid fa-envelope"></i>
                             </span>
-                            <input type="text" name="email" onBlur={handleOnBlur} id="sign-up-email" className=" rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Your Email" />
+                            <input type="text" name="email" onBlur={handleOnBlur} id="sign-up-email" className="flex-1 appearance-none border border-pink-300 w-full py-3 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Your Email" />
                         </div>
                     </div>
-                    <div className="flex flex-col mb-3">
+                    <div className="flex flex-col mb-4">
                         <div className="flex relative ">
                             <span className="rounded-l-md inline-flex  items-center px-3 border-t bg-white border-l border-b  border-gray-300 text-gray-500 shadow-sm text-sm">
                                 <i className="fa-solid fa-lock"></i>
                             </span>
-                            <input type="password" name="password" onBlur={handleOnBlur} id="sign-up-password" className=" rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Your Password" />
+                            <input type="password" name="password" onBlur={handleOnBlur} id="sign-up-password" className="flex-1 appearance-none border border-pink-300 w-full py-3 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Your Password" />
                         </div>
                     </div>
-                    <div className="flex flex-col mb-6">
+                    <div className="flex flex-col mb-8">
                         <div className="flex relative ">
                             <span className="rounded-l-md inline-flex  items-center px-3 border-t bg-white border-l border-b  border-gray-300 text-gray-500 shadow-sm text-sm">
                                 <i className="fa-solid fa-lock"></i>
                             </span>
-                            <input type="password" name="userConfirmPassword" onBlur={handleOnBlur} id="sign-up-confirm-password" className=" rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Confirm Password" />
+                            <input type="password" name="userConfirmPassword" onBlur={handleOnBlur} id="sign-up-confirm-password" className="flex-1 appearance-none border border-pink-300 w-full py-3 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Confirm Password" />
                         </div>
                     </div>
                     <div className="flex items-center mb-6 -mt-4">
                         <div className="flex ml-auto">
-                            <a href="/#" className="inline-flex text-base font-thin text-gray-500 sm:text-sm dark:text-gray-100 hover:text-gray-700 dark:hover:text-white">
+                            <a href="/#" className="inline-flex text-4xl text-gray-500 sm:text-lg dark:text-gray-100 hover:text-gray-700 dark:hover:text-white">
                                 Forgot Your Password?
                             </a>
                         </div>
                     </div>
                     <div className="flex w-full">
-                        <button type="submit" className="  focus:ring-purple-500 focus:ring-offset-purple-200  w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2   uppercase my-2 py-2 px-4 rounded-lg bg-pink-500 border-2 border-transparent text-white text-md mr-4 hover:bg-pink-400 ">
+                        <button type="submit" className="  focus:ring-purple-500 focus:ring-offset-purple-200  w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2   uppercase my-2 py-3 px-4 rounded-lg bg-pink-500 border-2 border-transparent text-white text-md mr-4 hover:bg-pink-400 ">
                             Register
                         </button>
                     </div>

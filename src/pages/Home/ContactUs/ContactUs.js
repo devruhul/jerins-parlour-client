@@ -11,17 +11,17 @@ const ContactUs = () => {
                 <div className="grid max-w-xl grid-cols-2 gap-4 m-auto">
                     <div className="md:col-span-2 lg:col-span-1">
                         <div className=" relative ">
-                            <input type="text" id="contact-form-name" className=" rounded-lg border-transparent flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2  focus:ring-pink-500" placeholder="First Name" />
+                            <input type="text" id="contact-form-name" className="flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="First Name" />
                         </div>
                     </div>
                     <div className="md:col-span-2 lg:col-span-1">
                         <div className=" relative ">
-                            <input type="text" id="contact-form-email" className=" rounded-lg border-transparent flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-pink-500 " placeholder="Last Name" />
+                            <input type="text" id="contact-form-email" className="flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Last Name" />
                         </div>
                     </div>
                     <div className="md:col-span-2 lg:col-span-1">
                         <div className=" relative ">
-                            <input type="text" id="contact-form-name" className=" rounded-lg border-transparent flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Email Address" />
+                            <input type="text" id="contact-form-name" className="flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Email Address" />
                         </div>
                     </div>
                     <div className="col-span-2 lg:col-span-1">

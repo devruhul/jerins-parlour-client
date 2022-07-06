@@ -53,7 +53,7 @@ const Login = () => {
                             <span className="rounded-l-md inline-flex  items-center px-3 border-t bg-white border-l border-b  border-gray-300 text-gray-500 shadow-sm text-sm">
                                 <i className="fa-solid fa-envelope"></i>
                             </span>
-                            <input type="text" name="email" id="sign-in-email" onBlur={handleOnChange} className=" rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Your Email" />
+                            <input type="text" name="email" id="sign-in-email" onBlur={handleOnChange} className="flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Your Email" />
                         </div>
                     </div>
                     <div className="flex flex-col mb-6">
@@ -61,7 +61,7 @@ const Login = () => {
                             <span className="rounded-l-md inline-flex  items-center px-3 border-t bg-white border-l border-b  border-gray-300 text-gray-500 shadow-sm text-sm">
                                 <i className="fa-solid fa-lock"></i>
                             </span>
-                            <input type="password" name="password" onBlur={handleOnChange} id="sign-in-password" className=" rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Your Password" />
+                            <input type="password" name="password" onBlur={handleOnChange} id="sign-in-password" className=" flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Your Password" />
                         </div>
                     </div>
                     <div className="flex items-center mb-6 -mt-4">

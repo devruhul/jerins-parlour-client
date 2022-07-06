@@ -11,6 +11,7 @@ import NotFound from './pages/Home/NotFound/NotFound';
 import Register from './pages/Authentication/Register/Register';
 import Login from './pages/Authentication/Login/Login';
 import ExploreServices from './pages/Home/ExploreServices/ExploreServices';
+import PrivateRoute from './pages/Authentication/PrivateRoute/PrivateRoute';
 
 function App() {
   return (
@@ -18,8 +19,10 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="services" element={<Services />} >
-        </Route>
+        <Route path="services" element={
+          <PrivateRoute>
+            <Services />
+          </PrivateRoute>} />
         <Route path="exploreservices" element={<ExploreServices />} />
         <Route path="feature" element={<Feature />} />
         <Route path="testimonials" element={<Testimonials />} />

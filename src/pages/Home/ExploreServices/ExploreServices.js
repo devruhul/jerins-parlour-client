@@ -4,10 +4,8 @@ import { Link } from 'react-router-dom';
 
 const ExploreServices = () => {
     return (
-        <div>
-            <h3 className="uppercase inline-block my-6 py-2 px-4 mx-auto bg-pink-500 text-white text-md">
-                Explore More Services
-            </h3>
+        <div className='my-10 space-y-7 py-10'>
+            <h3 className='text-4xl font-bold my-1'>Explore More<span className="text-span-text"> Services</span></h3>
             <div className="sm:flex flex-wrap justify-center items-center text-center gap-8">
                 <div className="w-full sm:w-1/2 md:w-1/2 lg:w-1/4 px-4 py-10 bg-white my-6 hover:drop-shadow-2xl  rounded-lg dark:bg-gray-800">
                     <div className="flex-shrink-0">
