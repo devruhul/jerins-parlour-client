@@ -1,8 +1,9 @@
 import React from 'react';
 import service1 from '../../../assets/icon/service-1.png';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 const ExploreServices = () => {
+    let { id } = useParams();
     return (
         <div className='my-10 space-y-7 py-10'>
             <h3 className='text-4xl font-bold my-1'>Explore More<span className="text-span-text"> Services</span></h3>
@@ -23,7 +24,7 @@ const ExploreServices = () => {
                     <p className="text-md  text-gray-500 dark:text-gray-300 py-4">
                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi aperiam fugit eveniet deserunt. Iusto laboriosam nulla adipisci, minima ut laborum?</p>
                     </p>
-                    <Link to="/booking/" className="  focus:ring-purple-500 focus:ring-offset-purple-200  w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2   uppercase my-2 py-2 px-4 rounded-lg bg-pink-500 border-2 border-transparent text-white text-md mr-4 hover:bg-pink-400 ">
+                    <Link to={`/bookingService/${id}`} className="  focus:ring-purple-500 focus:ring-offset-purple-200  w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2   uppercase my-2 py-2 px-4 rounded-lg bg-pink-500 border-2 border-transparent text-white text-md mr-4 hover:bg-pink-400 ">
                         Book Service
                     </Link>
                 </div>

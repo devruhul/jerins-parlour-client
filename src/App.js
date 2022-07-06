@@ -12,6 +12,8 @@ import Register from './pages/Authentication/Register/Register';
 import Login from './pages/Authentication/Login/Login';
 import ExploreServices from './pages/Home/ExploreServices/ExploreServices';
 import PrivateRoute from './pages/Authentication/PrivateRoute/PrivateRoute';
+import BookingService from './pages/Booking/BookingService/BookingService';
+import BookingDetails from './pages/Booking/BookingDetails/BookingDetails';
 
 function App() {
   return (
@@ -22,8 +24,12 @@ function App() {
         <Route path="services" element={
           <PrivateRoute>
             <Services />
-          </PrivateRoute>} />
-        <Route path="exploreservices" element={<ExploreServices />} />
+          </PrivateRoute>}>
+        </Route>
+        <Route path="bookingService" element={<BookingService />}>
+          <Route path=":id" element={<BookingDetails />} />
+        </Route>
+        <Route path="exploreServices" element={<ExploreServices />} />
         <Route path="feature" element={<Feature />} />
         <Route path="testimonials" element={<Testimonials />} />
         <Route path="contact" element={<ContactUs />} />
@@ -32,7 +38,7 @@ function App() {
         <Route path="/*" element={<NotFound />} />
       </Routes>
       <Footer />
-    </div>
+    </div >
   );
 }
 
