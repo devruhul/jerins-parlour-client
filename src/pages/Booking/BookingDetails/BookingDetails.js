@@ -69,7 +69,7 @@ const BookingDetails = () => {
                     </div>
                     <div className="md:col-span-2 lg:col-span-2">
                         <div className=" relative ">
-                            <textarea name="imageLink" onBlur={handleOnBlur} type="text" id="contact-form-message" className="flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Service Description" rows="5" cols="40">
+                            <textarea name="imageLink" onBlur={handleOnBlur} type="text" id="contact-form-message" className="flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Service image Link" rows="5" cols="40">
                             </textarea>
                         </div>
                     </div>
