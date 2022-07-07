@@ -1,14 +1,11 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { Link, Outlet } from 'react-router-dom';
-import service1 from '../../../assets/icon/service-1.png'
-import service2 from '../../../assets/icon/service-2.png'
-import service3 from '../../../assets/icon/service-3.png'
 import Service from './Service/Service';
 
 
 const Services = () => {
     const [services, setServices] = useState([]);
-    
+
     useEffect(() => {
         fetch('http://localhost:5000/services')
             .then(res => res.json())

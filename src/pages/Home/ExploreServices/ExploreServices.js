@@ -1,5 +1,5 @@
 import React from 'react';
-import service1 from '../../../assets/icon/service-1.png';
+import service1 from '../../../assets/Icon/service-1.png';
 import { Link, useParams } from 'react-router-dom';
 
 const ExploreServices = () => {
