@@ -62,16 +62,16 @@ const BookingDetails = () => {
                             <input name="description" onBlur={handleOnBlur} type="text" id="contact-form-email" className="flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Service Description" />
                         </div>
                     </div>
-                    <div className="col-span-2 lg:col-span-2">
+                    <div className="md:col-span-2 lg:col-span-2">
                         <div className=" relative ">
                             <input name="price" onBlur={handleOnBlur} type="number" id="contact-form-email" className="flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Service Price" />
                         </div>
                     </div>
-                    <div className="col-span-2">
-                        <label className="text-gray-700" htmlFor='name'>
-                            <textarea name="imageLink" onBlur={handleOnBlur} className="flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" id="comment" placeholder="Service image link" rows="5" cols="40">
+                    <div className="md:col-span-2 lg:col-span-2">
+                        <div className=" relative ">
+                            <textarea name="imageLink" onBlur={handleOnBlur} type="text" id="contact-form-message" className="flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Service Description" rows="5" cols="40">
                             </textarea>
-                        </label>
+                        </div>
                     </div>
                     <div className="col-span-2">
                         <button type='submit' className="uppercase my-6 py-2 px-4 rounded-lg bg-pink-500 border-2 border-transparent text-white text-md mr-4 hover:bg-pink-400">

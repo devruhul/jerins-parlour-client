@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import facialWomen from '../../../assets/images/facial-women.png'
 
 const Banner = () => {
@@ -18,9 +19,9 @@ const Banner = () => {
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus commodo ipsum duis laoreet maecenas. Feugiat
                     </p>
                     <div className="flex mt-8">
-                        <a href="/#" className="uppercase py-2 px-4 rounded-lg bg-pink-500 border-2 border-transparent text-white text-md mr-4 hover:bg-pink-400">
+                        <Link to="/services" className="uppercase py-2 px-4 rounded-lg bg-pink-500 border-2 border-transparent text-white text-md mr-4 hover:bg-pink-400">
                             Get an Appointment
-                        </a>
+                        </Link>
                     </div>
                 </div>
                 <div className="hidden sm:block sm:w-1/3 lg:w-3/5 relative">
