@@ -9,7 +9,6 @@ const Service = ({ img, title, description, price, id }) => {
                 <div className="flex items-center mx-auto justify-center  rounded-md  text-white">
                     <img src={img} alt="" className='inline w-32' />
                 </div>
-
             </div>
             <h3 className="text-2xl sm:text-xl text-gray-700 font-semibold dark:text-white py-2">
                 {title}
