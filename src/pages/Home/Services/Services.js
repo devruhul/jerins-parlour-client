@@ -7,32 +7,15 @@ import Service from './Service/Service';
 
 
 const Services = () => {
-
-    const services = [
-        {
-            id: 1,
-            title: 'Anti Age Face Treatment',
-            price: 199,
-            description: 'We craft stunning and amazing web UI, using a well drrafted UX to fit your product.',
-            img: service1
-
-        },
-        {
-            id: 2,
-            title: 'Hair Color & Styling',
-            price: 99,
-            description: 'Amazing flyers, social media posts and brand representations that would make your brand stand out.',
-            img: service2
-
-        },
-        {
-            id: 3,
-            title: 'Skin Care Treatment',
-            price: 299,
-            description: 'With well written codes, we build amazing apps for all platforms, mobile and web apps in general.',
-            img: service3
-        }
-    ]
+    const [services, setServices] = useState([]);
+    
+    useEffect(() => {
+        fetch('http://localhost:5000/services')
+            .then(res => res.json())
+            .then(data => {
+                setServices(data);
+            })
+    }, [])
 
     return (
         <div className='my-10 space-y-7 py-10'>
