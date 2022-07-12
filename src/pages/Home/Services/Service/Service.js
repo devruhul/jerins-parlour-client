@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 
 const Service = ({ imageLink, serviceName, description, price, _id }) => {
-  
+
     return (
         <div className="w-full sm:w-1/2 md:w-1/2 lg:w-1/4 px-4 py-10 bg-white mt-6  hover:drop-shadow-2xl  rounded-lg dark:bg-gray-800">
             <div className="flex-shrink-0">
