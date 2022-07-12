@@ -8,7 +8,11 @@ const PrivateRoute = ({ children }) => {
     let location = useLocation();
 
     if (loading) {
-        return <div>Loading...</div>
+        return (
+            <div className='text-center my-6'>
+                <i className="fa-solid fa-3x fa-spinner"></i>
+            </div>
+        )
     }
 
     if (parlourUser.email) {
