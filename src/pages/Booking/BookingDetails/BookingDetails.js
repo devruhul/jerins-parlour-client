@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import './BookingDetails.css';
 
 const BookingDetails = () => {
     let { id } = useParams();
@@ -77,12 +78,14 @@ const BookingDetails = () => {
                         </div>
                     </div>
                     <div className="md:col-span-2 lg:col-span-2">
-                        <div className=" relative ">
-                            <input name="price" type="number" id="contact-form-email" className="flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                        <div class="currency-wrap relative">
+                            <span class="currency-code">$</span>
+                            <input name="price" type="number" id="contact-form-email" className=" text-currency flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
                                 disabled
                                 onBlur={handleOnBlur}
                                 defaultValue={booking.price}
-                                placeholder="Service Price" />
+                                placeholder="Service Price"
+                            />
                         </div>
                     </div>
                     <div className="md:col-span-2 lg:col-span-2">
