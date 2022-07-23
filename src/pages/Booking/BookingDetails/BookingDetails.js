@@ -14,10 +14,42 @@ const BookingDetails = () => {
             })
     }, [id])
 
-    const handleBookingDetails = () => {
-        
-    }
+    const handleOnBlur = (e) => {
+        const nameInputField = e.target.name
+        const valueInputField = e.target.value
 
+        setBooking({
+            ...booking,
+            [nameInputField]: valueInputField
+        })
+
+        console.log(booking)
+    }
+    // Handle the booking form submit
+    const handleBookingDetails = e => {
+
+        const bookingService = {
+            ...booking
+        }
+
+        // send booking service data to server side
+        fetch('http://localhost:5000/bookings/', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(bookingService)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.insertedId) {
+                    alert('Booking service Successfully')
+                    e.target.reset()
+                }
+            })
+        // Stop reloading the page
+        e.preventDefault()
+    }
 
     return (
         <form onSubmit={handleBookingDetails} className="flex w-full  space-x-3 mx-auto">
@@ -30,6 +62,7 @@ const BookingDetails = () => {
                         <div className=" relative ">
                             <input name="serviceName" type="text" id="contact-form-name" className="flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
                                 disabled
+                                onBlur={handleOnBlur}
                                 defaultValue={booking.serviceName}
                                 placeholder="Service Title" />
                         </div>
@@ -38,6 +71,7 @@ const BookingDetails = () => {
                         <div className=" relative ">
                             <input name="description" type="text" id="contact-form-email" className="flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
                                 disabled
+                                onBlur={handleOnBlur}
                                 defaultValue={booking.description}
                                 placeholder="Service Description" />
                         </div>
@@ -46,13 +80,16 @@ const BookingDetails = () => {
                         <div className=" relative ">
                             <input name="price" type="number" id="contact-form-email" className="flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
                                 disabled
+                                onBlur={handleOnBlur}
                                 defaultValue={booking.price}
                                 placeholder="Service Price" />
                         </div>
                     </div>
                     <div className="md:col-span-2 lg:col-span-2">
                         <div className=" relative ">
-                            <textarea name="imageLink" type="text" id="contact-form-message" className="flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                            <textarea name="addBookingInfo" type="text" id="contact-form-message" className="flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                                required
+                                onChange={handleOnBlur}
                                 placeholder="Add your additional booking info" rows="5" cols="40">
                             </textarea>
                         </div>
