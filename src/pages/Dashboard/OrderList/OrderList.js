@@ -23,7 +23,6 @@ const OrderList = () => {
                 <h2 className="font-semibold text-4xl text-slate-800">Order List</h2>
             </header>
             <div className="p-3">
-
                 {/* Table */}
                 <div className="overflow-x-auto">
                     <table className="table-auto w-full ml-20">
@@ -75,9 +74,7 @@ const OrderList = () => {
                             }
                         </tbody>
                     </table>
-
                 </div>
-
             </div>
         </div>
     );
