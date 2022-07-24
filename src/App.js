@@ -21,6 +21,7 @@ import MakeAdmin from './pages/Dashboard/MakeAdmin/MakeAdmin';
 import AddService from './pages/Dashboard/AddService/AddService';
 import BookingList from './pages/Dashboard/BookingList/BookingList';
 import ServiceReview from './pages/Dashboard/ServiceReview/ServiceReview';
+import OrderList from './pages/Dashboard/OrderList/OrderList';
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
         }>
           <Route path="/dashboard/dashboardHome" element={<DashboardHome />} />
           <Route path="/dashboard/bookingList" element={<BookingList />} />
+          <Route path="/dashboard/orderList" element={<OrderList />} />
           <Route path="/dashboard/serviceReview" element={<ServiceReview />} />
           <Route path="/dashboard/makeAdmin" element={
             <AdminRoute>

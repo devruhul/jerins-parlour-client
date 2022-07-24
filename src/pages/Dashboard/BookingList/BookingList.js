@@ -11,7 +11,7 @@ const BookingList = () => {
     
     return (
         <section class="text-gray-600 body-font">
-            <div class="container px-5 py-14 mx-auto">
+            <div class="container px-5 py-10 mx-auto">
                 <h2 className='py-5 font-bold text-4xl'>Booking List</h2>
                 <div class="flex flex-wrap -m-4">
                     {bookingList.map(booking => (
@@ -23,7 +23,7 @@ const BookingList = () => {
                                             <img src={booking.imageLink} alt="" className=' w-25' />
                                         </div>
                                         <div>
-                                            <p class="text-white bg-pink-500 p-3">{booking.orderStatus.toUpperCase()}</p>
+                                            <p class="text-white bg-pink-500 p-2">{booking.orderStatus.toUpperCase()}</p>
                                         </div>
                                     </div>
                                 </div>

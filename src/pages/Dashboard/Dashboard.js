@@ -66,6 +66,16 @@ const Dashboard = () => {
               </NavText>
             </NavItem>
           </Link>
+          <Link to="/dashboard/orderList">
+            <NavItem>
+              <NavIcon>
+                <i class="fa-solid fa-list" style={{ fontSize: '1.75em', color: 'white', paddingBottom: '.2em' }} />
+              </NavIcon>
+              <NavText style={{ paddingBottom: '1em', color: 'white' }}>
+                Order List
+              </NavText>
+            </NavItem>
+          </Link>
           <Link to="/dashboard/serviceReview">
             <NavItem>
               <NavIcon>
