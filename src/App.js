@@ -15,7 +15,6 @@ import PrivateRoute from './pages/Authentication/PrivateRoute/PrivateRoute';
 import BookingService from './pages/Booking/BookingService/BookingService';
 import BookingDetails from './pages/Booking/BookingDetails/BookingDetails';
 import Dashboard from './pages/Dashboard/Dashboard';
-import DashboardHome from './pages/Dashboard/DashboardHome/DashboardHome';
 import AdminRoute from './pages/Authentication/AdminRoute/AdminRoute';
 import MakeAdmin from './pages/Dashboard/MakeAdmin/MakeAdmin';
 import AddService from './pages/Dashboard/AddService/AddService';

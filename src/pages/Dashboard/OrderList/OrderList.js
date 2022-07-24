@@ -1,6 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import Select from 'react-select'
 
-function OrderList() {
+const options = [
+    { value: 'pending', label: 'Pending' },
+    { value: 'in progress', label: 'In Progress' },
+    { value: 'done', label: 'Done' },
+];
+
+const OrderList = () => {
 
     const [customers, setCustomers] = useState([])
 
@@ -58,7 +65,9 @@ function OrderList() {
                                                 <div className="text-left font-medium text-green-500">{customer.serviceName}</div>
                                             </td>
                                             <td className="p-2 whitespace-nowrap">
-                                                
+                                                <div>
+                                                    <Select options={options} />
+                                                </div>
                                             </td>
                                         </tr>
                                     )
