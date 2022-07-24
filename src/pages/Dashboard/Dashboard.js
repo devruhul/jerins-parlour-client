@@ -3,24 +3,15 @@ import SideNav, { NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
 
 // Be sure to include styles at some point, probably during your bootstraping
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
-import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import DashboardHome from './DashboardHome/DashboardHome';
 
 const Dashboard = () => {
-  const location = useLocation();
-  const history = useNavigate();
 
   return (
     <div>
       <SideNav
         className="bg-footer-bg "
-        onSelect={(selected) => {
-          const to = '/' + selected;
-          if (location.pathname !== to) {
-            history.push(to);
-          }
-        }
-        }
       >
         <SideNav.Toggle />
         <SideNav.Nav >
