@@ -39,7 +39,6 @@ function App() {
         </Route>
         <Route path="dashboard" element={<Dashboard />
         }>
-          <Route path="/dashboard/dashboardHome" element={<DashboardHome />} />
           <Route path="/dashboard/bookingList" element={<BookingList />} />
           <Route path="/dashboard/orderList" element={<OrderList />} />
           <Route path="/dashboard/serviceReview" element={<ServiceReview />} />

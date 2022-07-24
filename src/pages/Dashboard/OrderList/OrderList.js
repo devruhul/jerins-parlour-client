@@ -1,66 +1,25 @@
-import React from 'react';
-
-import customer1 from '../../../assets/images/customer-1.jpg';
-import customer2 from '../../../assets/images/customer-2.jpg';
-import customer3 from '../../../assets/images/customer-3.jpg';
-import customer4 from '../../../assets/images/customer-4.jpg';
-import customer5 from '../../../assets/images/customer-5.jpg';
+import React, { useEffect, useState } from 'react';
 
 function OrderList() {
 
-    const customers = [
-        {
-            id: '0',
-            image: customer1,
-            name: 'Alex Shatov',
-            email: 'alexshatov@gmail.com',
-            location: '🇺🇸',
-            spent: '$2,890.66',
-        },
-        {
-            id: '1',
-            image: customer2,
-            name: 'Philip Harbach',
-            email: 'philip.h@gmail.com',
-            location: '🇩🇪',
-            spent: '$2,767.04',
-        },
-        {
-            id: '2',
-            image: customer3,
-            name: 'Mirko Fisuk',
-            email: 'mirkofisuk@gmail.com',
-            location: '🇫🇷',
-            spent: '$2,996.00',
-        },
-        {
-            id: '3',
-            image: customer4,
-            name: 'Olga Semklo',
-            email: 'olga.s@cool.design',
-            location: '🇮🇹',
-            spent: '$1,220.66',
-        },
-        {
-            id: '4',
-            image: customer5,
-            name: 'Burak Long',
-            email: 'longburak@gmail.com',
-            location: '🇬🇧',
-            spent: '$1,890.66',
-        },
-    ];
+    const [customers, setCustomers] = useState([])
+
+    useEffect(() => {
+        fetch('http://localhost:5000/bookings')
+            .then(res => res.json())
+            .then(data => setCustomers(data))
+    }, [])
 
     return (
         <div className="col-span-full xl:col-span-6 bg-white shadow-lg rounded-sm border border-slate-200">
             <header className="px-5 py-4 border-b border-slate-100">
-                <h2 className="font-semibold text-slate-800">Customers</h2>
+                <h2 className="font-semibold text-4xl text-slate-800">Order List</h2>
             </header>
             <div className="p-3">
 
                 {/* Table */}
                 <div className="overflow-x-auto">
-                    <table className="table-auto w-full">
+                    <table className="table-auto w-full ml-20">
                         {/* Table header */}
                         <thead className="text-xs font-semibold uppercase text-slate-400 bg-slate-50">
                             <tr>
@@ -83,23 +42,23 @@ function OrderList() {
                             {
                                 customers.map(customer => {
                                     return (
-                                        <tr key={customer.id}>
+                                        <tr key={customer._id}>
                                             <td className="p-2 whitespace-nowrap">
                                                 <div className="flex items-center">
                                                     <div className="w-10 h-10 shrink-0 mr-2 sm:mr-3">
-                                                        <img className="rounded-full" src={customer.image} width="40" height="40" alt={customer.name} />
+                                                        <img className="rounded-full" src={customer.imageLink} width="40" height="40" alt={customer.name} />
                                                     </div>
-                                                    <div className="font-medium text-slate-800">{customer.name}</div>
+                                                    <div className="font-medium text-slate-800">{customer.parlourUserName}</div>
                                                 </div>
                                             </td>
                                             <td className="p-2 whitespace-nowrap">
                                                 <div className="text-left">{customer.email}</div>
                                             </td>
                                             <td className="p-2 whitespace-nowrap">
-                                                <div className="text-left font-medium text-green-500">{customer.spent}</div>
+                                                <div className="text-left font-medium text-green-500">{customer.serviceName}</div>
                                             </td>
                                             <td className="p-2 whitespace-nowrap">
-                                                <div className="text-lg text-center">{customer.location}</div>
+                                                
                                             </td>
                                         </tr>
                                     )

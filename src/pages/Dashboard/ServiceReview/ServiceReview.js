@@ -44,8 +44,8 @@ const ServiceReview = () => {
 
     return (
         <form onSubmit={handleServiceReview} className="flex w-full  space-x-3 mx-auto">
-            <div className="w-full  px-5 py-10 m-auto mt-10 bg-white rounded-lg shadow dark:bg-gray-800">
-
+            <div className="w-full  px-5 py-5 m-auto mt-5 bg-white rounded-lg shadow dark:bg-gray-800">
+                <h2 className="font-semibold text-4xl mb-4 text-slate-800">Reviews</h2>
                 <div className="grid max-w-xl grid-cols-2 gap-4 m-auto">
                     <div className="md:col-span-2 lg:col-span-2">
                         <div className=" relative ">

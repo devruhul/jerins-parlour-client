@@ -11,34 +11,24 @@ const Dashboard = () => {
   return (
     <div>
       <SideNav
-        className="bg-footer-bg "
+        className="bg-transparent"
       >
         <SideNav.Toggle />
         <SideNav.Nav >
           <Link to="/">
             <NavItem>
               <NavIcon>
-                <i className="fa fa-fw fa-home" style={{ fontSize: '1.75em', color: 'white', paddingBottom: '.5em' }} />
+                <i className="fa fa-fw fa-home" style={{ fontSize: '1.75em', color: 'black', paddingBottom: '.5em' }} />
               </NavIcon>
               <NavText style={{ paddingBottom: '.7em', color: 'white' }}>
                 Home
               </NavText>
             </NavItem>
           </Link>
-          <Link to="/dashboard/dashboardHome">
-            <NavItem>
-              <NavIcon>
-                <i class="fa-solid fa-chart-line" style={{ fontSize: '1.75em', color: 'white', paddingBottom: '.2em' }} />
-              </NavIcon>
-              <NavText style={{ paddingBottom: '.7em', color: 'white' }}>
-                Dashboard
-              </NavText>
-            </NavItem>
-          </Link>
           <Link to="/dashboard/addService">
             <NavItem>
               <NavIcon>
-                <i class="fa-solid fa-plus" style={{ fontSize: '1.75em', color: 'white', paddingBottom: '.2em' }} />
+                <i class="fa-solid fa-plus" style={{ fontSize: '1.75em', color: 'black', paddingBottom: '.2em' }} />
               </NavIcon>
               <NavText style={{ paddingBottom: '.7em', color: 'white' }}>
                 Add Service
@@ -48,7 +38,7 @@ const Dashboard = () => {
           <Link to="/dashboard/makeAdmin">
             <NavItem>
               <NavIcon>
-                <i class="fa-solid fa-user-plus" style={{ fontSize: '1.75em', color: 'white', paddingBottom: '.2em' }} />
+                <i class="fa-solid fa-user-plus" style={{ fontSize: '1.75em', color: 'black', paddingBottom: '.2em' }} />
               </NavIcon>
               <NavText style={{ paddingBottom: '.7em', color: 'white' }}>
                 Make Admin
@@ -59,27 +49,27 @@ const Dashboard = () => {
           <Link to="/dashboard/bookingList">
             <NavItem>
               <NavIcon>
-                <i class="fa-solid fa-list" style={{ fontSize: '1.75em', color: 'white', paddingBottom: '.2em' }} />
+                <i class="fa-solid fa-list" style={{ fontSize: '1.75em', color: 'black', paddingBottom: '.2em' }} />
               </NavIcon>
               <NavText style={{ paddingBottom: '1em', color: 'white' }}>
-                Booking List
+                Bookings
               </NavText>
             </NavItem>
           </Link>
           <Link to="/dashboard/orderList">
             <NavItem>
               <NavIcon>
-                <i class="fa-solid fa-list" style={{ fontSize: '1.75em', color: 'white', paddingBottom: '.2em' }} />
+                <i class="fa-solid fa-list" style={{ fontSize: '1.75em', color: 'black', paddingBottom: '.2em' }} />
               </NavIcon>
               <NavText style={{ paddingBottom: '1em', color: 'white' }}>
-                Order List
+                Orders
               </NavText>
             </NavItem>
           </Link>
           <Link to="/dashboard/serviceReview">
             <NavItem>
               <NavIcon>
-                <i class="fa-regular fa-message" style={{ fontSize: '1.75em', color: 'white', paddingBottom: '.2em' }} />
+                <i class="fa-regular fa-message" style={{ fontSize: '1.75em', color: 'black', paddingBottom: '.2em' }} />
               </NavIcon>
               <NavText style={{ paddingBottom: '.5em', color: 'white' }}>
                 Review

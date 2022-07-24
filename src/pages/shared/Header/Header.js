@@ -110,7 +110,7 @@ const Header = () => {
                                         <Link to="/services" className="text-gray-300 dark:text-white block px-3 py-2 rounded-md text-lg font-medium" >
                                             Services
                                         </Link>
-                                        <Link to="/dashboard" className="text-gray-500 dark:text-white  hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-lg font-medium" >
+                                        <Link to="/dashboard" className="text-gray-300 dark:text-white block px-3 py-2 rounded-md text-lg font-medium" >
                                             Dashboard
                                         </Link>
                                         <Link to="testimonials" className="text-gray-300 hover:text-gray-300 dark:hover:text-white block px-3 py-2 rounded-md text-lg font-medium" >
