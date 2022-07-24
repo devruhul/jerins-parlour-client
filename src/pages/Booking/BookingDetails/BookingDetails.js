@@ -18,11 +18,11 @@ const BookingDetails = () => {
     // handle change of input
     const handleOnBlur = (e) => {
         const nameInputField = e.target.name
-        const defaultValueInputField = e.target.defaultValue
+        const valueInputField = e.target.value
 
         setBookingInfo({
             ...bookingInfo,
-            [nameInputField]: defaultValueInputField
+            [nameInputField]: valueInputField
         })
     }
 
