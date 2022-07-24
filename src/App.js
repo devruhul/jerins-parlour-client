@@ -14,6 +14,13 @@ import ExploreServices from './pages/Home/ExploreServices/ExploreServices';
 import PrivateRoute from './pages/Authentication/PrivateRoute/PrivateRoute';
 import BookingService from './pages/Booking/BookingService/BookingService';
 import BookingDetails from './pages/Booking/BookingDetails/BookingDetails';
+import Dashboard from './pages/Dashboard/Dashboard';
+import DashboardHome from './pages/Dashboard/DashboardHome/DashboardHome';
+import AdminRoute from './pages/Authentication/AdminRoute/AdminRoute';
+import MakeAdmin from './pages/Dashboard/MakeAdmin/MakeAdmin';
+import AddService from './pages/Dashboard/AddService/AddService';
+import BookingList from './pages/Dashboard/BookingList/BookingList';
+import ServiceReview from './pages/Dashboard/ServiceReview/ServiceReview';
 
 function App() {
   return (
@@ -28,6 +35,20 @@ function App() {
         </Route>
         <Route path="bookingService" element={<BookingService />}>
           <Route path=":id" element={<BookingDetails />} />
+        </Route>
+        <Route path="dashboard" element={<Dashboard />
+        }>
+          <Route path="/dashboard/dashboardHome" element={<DashboardHome />} />
+          <Route path="/dashboard/bookingList" element={<BookingList />} />
+          <Route path="/dashboard/serviceReview" element={<ServiceReview />} />
+          <Route path="/dashboard/makeAdmin" element={
+            <AdminRoute>
+              <MakeAdmin />
+            </AdminRoute>
+          } />
+          <Route path="/dashboard/addService" element={
+            <AddService />
+          } />
         </Route>
         <Route path="exploreServices" element={<ExploreServices />} />
         <Route path="feature" element={<Feature />} />

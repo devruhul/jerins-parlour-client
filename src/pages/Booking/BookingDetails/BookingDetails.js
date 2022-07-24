@@ -7,6 +7,7 @@ const BookingDetails = () => {
 
     const [booking, setBooking] = useState({});
 
+    // load all service by id
     useEffect(() => {
         fetch(`http://localhost:5000/services/${id}`)
             .then(res => res.json())
@@ -15,6 +16,7 @@ const BookingDetails = () => {
             })
     }, [id])
 
+    // handle change of input
     const handleOnBlur = (e) => {
         const nameInputField = e.target.name
         const valueInputField = e.target.value
@@ -23,14 +25,14 @@ const BookingDetails = () => {
             ...booking,
             [nameInputField]: valueInputField
         })
-
-        console.log(booking)
     }
+
     // Handle the booking form submit
     const handleBookingDetails = e => {
 
         const bookingService = {
-            ...booking
+            ...booking,
+            orderStatus: 'pending'
         }
 
         // send booking service data to server side
