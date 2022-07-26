@@ -28,7 +28,7 @@ const Dashboard = () => {
           <Link to="/dashboard/addService">
             <NavItem>
               <NavIcon>
-                <i class="fa-solid fa-plus" style={{ fontSize: '1.75em', color: 'black', paddingBottom: '.2em' }} />
+                <i className="fa-solid fa-plus" style={{ fontSize: '1.75em', color: 'black', paddingBottom: '.2em' }} />
               </NavIcon>
               <NavText style={{ paddingBottom: '.7em', color: 'white' }}>
                 Add Service
@@ -38,7 +38,7 @@ const Dashboard = () => {
           <Link to="/dashboard/makeAdmin">
             <NavItem>
               <NavIcon>
-                <i class="fa-solid fa-user-plus" style={{ fontSize: '1.75em', color: 'black', paddingBottom: '.2em' }} />
+                <i className="fa-solid fa-user-plus" style={{ fontSize: '1.75em', color: 'black', paddingBottom: '.2em' }} />
               </NavIcon>
               <NavText style={{ paddingBottom: '.7em', color: 'white' }}>
                 Make Admin
@@ -49,7 +49,7 @@ const Dashboard = () => {
           <Link to="/dashboard/bookingList">
             <NavItem>
               <NavIcon>
-                <i class="fa-solid fa-list" style={{ fontSize: '1.75em', color: 'black', paddingBottom: '.2em' }} />
+                <i className="fa-solid fa-list" style={{ fontSize: '1.75em', color: 'black', paddingBottom: '.2em' }} />
               </NavIcon>
               <NavText style={{ paddingBottom: '1em', color: 'white' }}>
                 Bookings
@@ -59,7 +59,7 @@ const Dashboard = () => {
           <Link to="/dashboard/orderList">
             <NavItem>
               <NavIcon>
-                <i class="fa-solid fa-list" style={{ fontSize: '1.75em', color: 'black', paddingBottom: '.2em' }} />
+                <i className="fa-solid fa-list" style={{ fontSize: '1.75em', color: 'black', paddingBottom: '.2em' }} />
               </NavIcon>
               <NavText style={{ paddingBottom: '1em', color: 'white' }}>
                 Orders
@@ -69,7 +69,7 @@ const Dashboard = () => {
           <Link to="/dashboard/serviceReview">
             <NavItem>
               <NavIcon>
-                <i class="fa-regular fa-message" style={{ fontSize: '1.75em', color: 'black', paddingBottom: '.2em' }} />
+                <i className="fa-regular fa-message" style={{ fontSize: '1.75em', color: 'black', paddingBottom: '.2em' }} />
               </NavIcon>
               <NavText style={{ paddingBottom: '.5em', color: 'white' }}>
                 Review

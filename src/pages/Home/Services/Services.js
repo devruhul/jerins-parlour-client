@@ -4,6 +4,7 @@ import Service from './Service/Service';
 
 const Services = () => {
     const [services, setServices] = useState([]);
+    
 
     useEffect(() => {
         fetch('http://localhost:5000/services')
@@ -12,6 +13,7 @@ const Services = () => {
                 setServices(data);
             })
     }, [])
+
 
     // loading
     if (services.length === 0) {

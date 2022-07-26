@@ -1,11 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import Select from 'react-select'
-
-const options = [
-    { value: 'pending', label: 'Pending' },
-    { value: 'in progress', label: 'In Progress' },
-    { value: 'done', label: 'Done' },
-];
+import { Outlet } from 'react-router-dom';
+import ShowOrderList from '../ShowOrderList/ShowOrderList';
 
 const OrderList = () => {
 
@@ -14,7 +9,9 @@ const OrderList = () => {
     useEffect(() => {
         fetch('http://localhost:5000/bookings')
             .then(res => res.json())
-            .then(data => setCustomers(data))
+            .then(data => {
+                setCustomers(data)
+            })
     }, [])
 
     return (
@@ -41,42 +38,27 @@ const OrderList = () => {
                                 <th className="p-2 whitespace-nowrap">
                                     <div className="font-semibold text-center">Status</div>
                                 </th>
+                                <th className="p-2 whitespace-nowrap">
+                                    <div className="font-semibold text-center">Edit Status</div>
+                                </th>
                             </tr>
                         </thead>
                         {/* Table body */}
                         <tbody className="text-sm divide-y divide-slate-100">
                             {
-                                customers.map(customer => {
-                                    return (
-                                        <tr key={customer._id}>
-                                            <td className="p-2 whitespace-nowrap">
-                                                <div className="flex items-center">
-                                                    <div className="w-10 h-10 shrink-0 mr-2 sm:mr-3">
-                                                        <img className="rounded-full" src={customer.imageLink} width="40" height="40" alt={customer.name} />
-                                                    </div>
-                                                    <div className="font-medium text-slate-800">{customer.parlourUserName}</div>
-                                                </div>
-                                            </td>
-                                            <td className="p-2 whitespace-nowrap">
-                                                <div className="text-left">{customer.email}</div>
-                                            </td>
-                                            <td className="p-2 whitespace-nowrap">
-                                                <div className="text-left font-medium text-green-500">{customer.serviceName}</div>
-                                            </td>
-                                            <td className="p-2 whitespace-nowrap">
-                                                <div>
-                                                    <Select options={options} />
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    )
-                                })
+                                customers.map(customer =>
+                                    <ShowOrderList
+                                        key={customer._id}
+                                        {...customer}
+                                    />
+                                )
                             }
                         </tbody>
                     </table>
                 </div>
             </div>
-        </div>
+            <Outlet />
+        </div >
     );
 }
 

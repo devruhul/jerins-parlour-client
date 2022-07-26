@@ -21,6 +21,7 @@ import AddService from './pages/Dashboard/AddService/AddService';
 import BookingList from './pages/Dashboard/BookingList/BookingList';
 import ServiceReview from './pages/Dashboard/ServiceReview/ServiceReview';
 import OrderList from './pages/Dashboard/OrderList/OrderList';
+import OrderStatusUpdate from './pages/Dashboard/OrderStatusUpdate/OrderStatusUpdate';
 
 function App() {
   return (
@@ -36,10 +37,13 @@ function App() {
         <Route path="bookingService" element={<BookingService />}>
           <Route path=":id" element={<BookingDetails />} />
         </Route>
+
         <Route path="dashboard" element={<Dashboard />
         }>
           <Route path="/dashboard/bookingList" element={<BookingList />} />
-          <Route path="/dashboard/orderList" element={<OrderList />} />
+          <Route path="/dashboard/orderList" element={<OrderList />} >
+            <Route path=":id" element={<OrderStatusUpdate />} />
+          </Route>
           <Route path="/dashboard/serviceReview" element={<ServiceReview />} />
           <Route path="/dashboard/makeAdmin" element={
             <AdminRoute>
