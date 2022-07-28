@@ -6,14 +6,24 @@ import './BookingDetails.css';
 const BookingDetails = () => {
     const { id } = useParams();
     const { parlourUser } = useFirebase();
-
     const initialBookingInfo = {
         parlourUserName: parlourUser?.displayName,
         email: parlourUser?.email,
-        userPhoneNumber: ''
+        orderStatus: 'Pending'
     }
 
     const [bookingInfo, setBookingInfo] = useState(initialBookingInfo);
+    const [booking, setBooking] = useState({});
+
+    const handleEnter = (event) => {
+        if (event.key.toLowerCase() === "enter") {
+            const form = event.target.form;
+            const index = [...form].indexOf(event.target);
+            form.elements[index + 1].focus();
+            event.preventDefault();
+        }
+    };
+
 
     // handle change of input
     const handleOnBlur = (e) => {
@@ -29,28 +39,25 @@ const BookingDetails = () => {
     useEffect(() => {
         fetch(`http://localhost:5000/services/${id}`)
             .then(res => res.json())
-            .then(data => setBookingInfo(data)
+            .then(data => setBooking(data)
             )
     }, [id])
 
 
     // Handle the booking form submit
-    const handleBookingDetails = e => {
+    const handleBookingDetails = (e) => {
 
-        const bookingService = {
-            ...bookingInfo,
-            parlourUserName: parlourUser?.displayName,
-            email: parlourUser?.email,
-            orderStatus: 'pending'
-        }
+        setBookingInfo({
+            ...bookingInfo
+        })
 
         // send booking service data to server side
-        fetch('http://localhost:5000/bookings/', {
+        fetch('http://localhost:5000/bookings', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(bookingService)
+            body: JSON.stringify(bookingInfo)
         })
             .then(res => res.json())
             .then(data => {
@@ -67,13 +74,14 @@ const BookingDetails = () => {
         <form onSubmit={handleBookingDetails} className="flex w-full  space-x-3 mx-auto">
             <div className="w-full  px-5 py-10 m-auto mt-10 bg-white rounded-lg shadow dark:bg-gray-800">
                 <div className="mb-6 text-3xl font-bold text-center text-gray-800 dark:text-white">
-                    Booking<span className='text-span-text'> The Service {bookingInfo.serviceName}</span>
+                    Booking<span className='text-span-text'> The Service {booking.serviceName}</span>
                 </div>
                 <div className="grid max-w-xl grid-cols-2 gap-4 m-auto">
                     <div className="md:col-span-2 lg:col-span-2">
                         <div className=" relative ">
-                            <input name="userName" type="text" id="contact-form-user-email" className="flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
-                                disabled
+                            <input name="userName" type="text" id="contact-form-user-name" className="flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                                required
+                                autoFocus
                                 onBlur={handleOnBlur}
                                 defaultValue={parlourUser?.displayName}
                                 placeholder="Enter Full Name" />
@@ -82,7 +90,7 @@ const BookingDetails = () => {
                     <div className="md:col-span-2 lg:col-span-2">
                         <div className=" relative ">
                             <input name="userEmail" type="email" id="contact-form-user-email" className="flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
-                                disabled
+                                required
                                 onBlur={handleOnBlur}
                                 defaultValue={parlourUser?.email}
                                 placeholder="Enter Email" />
@@ -90,7 +98,7 @@ const BookingDetails = () => {
                     </div>
                     <div className="md:col-span-2 lg:col-span-2">
                         <div className=" relative ">
-                            <input name="userPhoneNumber" type="number" id="contact-form-user-number" className="flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                            <input name="phoneNumber" type="number" id="contact-form-user-number" className="flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
                                 required
                                 onBlur={handleOnBlur}
                                 placeholder="Enter Phone Number" />
@@ -98,36 +106,36 @@ const BookingDetails = () => {
                     </div>
                     <div className="md:col-span-2 lg:col-span-2">
                         <div className=" relative ">
-                            <input name="serviceName" type="text" id="contact-form-name" className="flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
-                                disabled
+                            <input name="serviceTitle" type="text" id="contact-form-name" className="flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                                readOnly
                                 onBlur={handleOnBlur}
-                                defaultValue={bookingInfo.serviceName}
+                                defaultValue={booking.serviceName}
                                 placeholder="Service Title" />
                         </div>
                     </div>
                     <div className="md:col-span-2 lg:col-span-2">
                         <div className=" relative ">
-                            <input name="description" type="text" id="contact-form-email" className="flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
-                                disabled
+                            <input name="serviceDescription" type="text" id="contact-form-email" className="flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                                readOnly
                                 onBlur={handleOnBlur}
-                                defaultValue={bookingInfo.description}
+                                defaultValue={booking.description}
                                 placeholder="Service Description" />
                         </div>
                     </div>
                     <div className="md:col-span-2 lg:col-span-2">
                         <div className="currency-wrap relative">
                             <span className="currency-code">$</span>
-                            <input name="price" type="number" id="contact-form-email" className=" text-currency flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
-                                disabled
+                            <input name="servicePrice" type="number" id="contact-form-email" className=" text-currency flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                                readOnly
                                 onBlur={handleOnBlur}
-                                defaultValue={bookingInfo.price}
+                                defaultValue={booking.price}
                                 placeholder="Service Price"
                             />
                         </div>
                     </div>
                     <div className="md:col-span-2 lg:col-span-2">
                         <div className=" relative ">
-                            <textarea name="addBookingInfo" type="text" id="contact-form-message" className="flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                            <textarea name="addInfo" type="text" id="contact-form-message" className="flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
                                 required
                                 onBlur={handleOnBlur}
                                 placeholder="Add your additional booking info" rows="5" cols="40">
@@ -135,7 +143,7 @@ const BookingDetails = () => {
                         </div>
                     </div>
                     <div className="col-span-2">
-                        <button type='submit' className="uppercase my-6 py-2 px-4 rounded-lg bg-pink-500 border-2 border-transparent text-white text-md mr-4 hover:bg-pink-400">
+                        <button onKeyDown={handleEnter} type='submit' className="uppercase my-6 py-2 px-4 rounded-lg bg-pink-500 border-2 border-transparent text-white text-md mr-4 hover:bg-pink-400">
                             Submit
                         </button>
                     </div>

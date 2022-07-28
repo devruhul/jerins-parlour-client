@@ -11,21 +11,8 @@ const ShowOrderList = ({ _id, imageLink, parlourUserName, email, serviceName }) 
 
         const optionText = selectOption.text;
         const optionValue = selectOption.value;
-        console.log(optionText, optionValue);
+        console.log(optionText, optionValue, status);
         setStatus(optionValue);
-    }
-
-    const deleteOrder = () => {
-        fetch(`http://localhost:5000/bookings/${_id}`, {
-            method: 'DELETE'
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.deletedCount === 1) {
-                    alert('Order Successfully Deleted')
-                }
-            }
-            )
     }
 
 
@@ -62,7 +49,7 @@ const ShowOrderList = ({ _id, imageLink, parlourUserName, email, serviceName }) 
             <td className="p-2 whitespace-nowrap">
                 <div>
                     {/* <button className="btn btn-outline btn-secondary m-3">Update</button> */}
-                    <button onClick={deleteOrder} className="btn btn-outline btn-secondary">Delete</button>
+                    <button className="btn btn-outline btn-secondary">Delete</button>
                 </div>
             </td>
         </tr>
