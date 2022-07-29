@@ -134,6 +134,16 @@ const BookingDetails = () => {
                         </div>
                     </div>
                     <div className="md:col-span-2 lg:col-span-2">
+                        <div className="relative">
+                            <input name="serviceImg" type="text" id="contact-form-email" className=" text-currency flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                                readOnly
+                                onBlur={handleOnBlur}
+                                value={booking.imageLink}
+                                placeholder="Service Image"
+                            />
+                        </div>
+                    </div>
+                    <div className="md:col-span-2 lg:col-span-2">
                         <div className=" relative ">
                             <textarea name="addInfo" type="text" id="contact-form-message" className="flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
                                 required
