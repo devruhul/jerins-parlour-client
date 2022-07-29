@@ -15,7 +15,7 @@ const OrderStatusUpdate = () => {
 
     return (
         <div>
-            <h2>Hello status update {customer?.email}</h2>
+            <h2>Hello status update {customer?.orderStatus}</h2>
         </div>
     );
 };

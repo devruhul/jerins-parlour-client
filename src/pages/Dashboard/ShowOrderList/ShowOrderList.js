@@ -3,17 +3,39 @@ import { Link } from 'react-router-dom';
 
 const ShowOrderList = ({ _id, serviceImg, userName, userEmail, serviceTitle }) => {
 
-    const [status, setStatus] = useState({})
+    const [status, setStatus] = useState();
 
     const getStatus = () => {
         const selectStatus = document.getElementById('status');
-        const selectOption = selectStatus.options[selectStatus.selectedIndex];
+        const selectOption = selectStatus.option[selectStatus.selectedIndex];
 
         const optionText = selectOption.text;
         const optionValue = selectOption.value;
         console.log(optionText, optionValue, status);
         setStatus(optionValue);
     }
+
+    const handleChangeStatus = (e) => {
+        fetch(`http://localhost:5000/bookings/${_id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(status)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount > 0) {
+                    alert('Status updated successfully');
+                    console.log(data);
+                    setStatus(status);
+                }
+                else {
+                    alert('Status not updated');
+                }
+            })
+    }
+
 
 
     return (
@@ -35,14 +57,14 @@ const ShowOrderList = ({ _id, serviceImg, userName, userEmail, serviceTitle }) =
             <td className="p-2 whitespace-nowrap">
                 <div className='flex justify-around'>
 
-                    <select id="status" onClick={getStatus}>
-                        <option value="Pending"
-                        >Pending</option>
-                        <option value="Ongoing">Ongoing</option>
-                        <option value="Done">Done</option>
+                    <select value={status} onClick={getStatus} onChange={e => setStatus(e.target.value)}>
+                        <option>Pending</option>
+                        <option>Ongoing</option>
+                        <option>Done</option>
                     </select>
+                    <p>{status}</p>
                     <div>
-                        <Link to={`/dashboard/orderList/${_id}`} className="text-white bg-black p-2">Update</Link>
+                        <button onClick={handleChangeStatus} className="text-white bg-black p-2">Update</button>
                     </div>
                 </div>
             </td>
