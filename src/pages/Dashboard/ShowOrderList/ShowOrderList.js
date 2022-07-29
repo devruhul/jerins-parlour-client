@@ -1,9 +1,15 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
 
 const ShowOrderList = ({ _id, serviceImg, userName, userEmail, serviceTitle }) => {
 
     const [status, setStatus] = useState();
+    const [customerOrder, setCustomerOrder] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:5000/bookings')
+            .then(res => res.json())
+            .then(data => setCustomerOrder(data))
+    }, [])
 
     const getStatus = () => {
         const selectStatus = document.getElementById('status');
@@ -36,7 +42,26 @@ const ShowOrderList = ({ _id, serviceImg, userName, userEmail, serviceTitle }) =
             })
     }
 
-
+    // delete order
+    // delete order from database by id
+    const handleOrderDelete = id => {
+        const result = window.confirm('Are you sure to delete?');
+        if (result) {
+            const url = `http://localhost:5000/bookings/${_id}`
+            fetch(url, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.deletedCount) {
+                        alert('Deleted Successfully!')
+                        const remaining = customerOrder.filter(pd => pd._id !== id);
+                        setCustomerOrder(remaining);
+                        window.location.reload();
+                    }
+                })
+        }
+    }
 
     return (
         <tr>
@@ -62,7 +87,6 @@ const ShowOrderList = ({ _id, serviceImg, userName, userEmail, serviceTitle }) =
                         <option>Ongoing</option>
                         <option>Done</option>
                     </select>
-                    <p>{status}</p>
                     <div>
                         <button onClick={handleChangeStatus} className="text-white bg-black p-2">Update</button>
                     </div>
@@ -71,7 +95,7 @@ const ShowOrderList = ({ _id, serviceImg, userName, userEmail, serviceTitle }) =
             <td className="p-2 whitespace-nowrap">
                 <div>
                     {/* <button className="btn btn-outline btn-secondary m-3">Update</button> */}
-                    <button className="btn btn-outline btn-secondary">Delete</button>
+                    <button onClick={() => handleOrderDelete(customerOrder._id)} className="btn btn-outline btn-secondary">Delete</button>
                 </div>
             </td>
         </tr>
