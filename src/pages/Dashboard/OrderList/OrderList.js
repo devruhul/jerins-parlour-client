@@ -14,6 +14,15 @@ const OrderList = () => {
             })
     }, [])
 
+    // loading
+    if (customers.length === 0) {
+        return (
+            <div className='text-center my-6'>
+                <i className="fa-solid fa-3x fa-spinner"></i>
+            </div>
+        )
+    }
+
     return (
         <div className="col-span-full xl:col-span-6 bg-white shadow-lg rounded-sm border border-slate-200">
             <header className="px-5 py-4 border-b border-slate-100">

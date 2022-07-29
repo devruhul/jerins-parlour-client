@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const ShowOrderList = ({ _id, imageLink, parlourUserName, email, serviceName }) => {
+const ShowOrderList = ({ _id, serviceImg, userName, userEmail, serviceTitle }) => {
 
     const [status, setStatus] = useState({})
 
@@ -21,16 +21,16 @@ const ShowOrderList = ({ _id, imageLink, parlourUserName, email, serviceName }) 
             <td className="p-2 whitespace-nowrap">
                 <div className="flex items-center">
                     <div className="w-10 h-10 shrink-0 mr-2 sm:mr-3">
-                        <img className="rounded-full" src={imageLink} width="40" height="40" alt="" />
+                        <img className="rounded-full" src={serviceImg} width="40" height="40" alt="" />
                     </div>
-                    <div className="font-medium text-slate-800">{parlourUserName}</div>
+                    <div className="font-medium text-slate-800">{userName}</div>
                 </div>
             </td>
             <td className="p-2 whitespace-nowrap">
-                <div className="text-left">{email}</div>
+                <div className="text-left">{userEmail}</div>
             </td>
             <td className="p-2 whitespace-nowrap">
-                <div className="text-left font-medium text-green-500">{serviceName}</div>
+                <div className="text-left font-medium text-green-500">{serviceTitle}</div>
             </td>
             <td className="p-2 whitespace-nowrap">
                 <div className='flex justify-around'>

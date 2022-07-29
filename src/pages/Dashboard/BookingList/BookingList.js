@@ -9,6 +9,15 @@ const BookingList = () => {
             .then(data => setBookings(data))
     }, [bookings]);
 
+    // loading
+    if (bookings.length === 0) {
+        return (
+            <div className='text-center my-6'>
+                <i className="fa-solid fa-3x fa-spinner"></i>
+            </div>
+        )
+    }
+
     return (
         <section className="text-gray-600 body-font">
             <div className="container px-5 py-10 mx-auto">
