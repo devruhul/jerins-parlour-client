@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 const ShowOrderList = ({ _id, serviceImg, userName, userEmail, serviceTitle }) => {
 
-    const [status, setStatus] = useState("");
+    const [changeStatus, setChangeStatus] = useState("");
     const [customerOrder, setCustomerOrder] = useState({});
 
 
@@ -18,13 +18,13 @@ const ShowOrderList = ({ _id, serviceImg, userName, userEmail, serviceTitle }) =
         const selectOption = selectStatus.options[selectStatus.selectedIndex];
         const optionText = selectOption.text;
         const optionValue = selectOption.value;
-        console.log(optionText, optionValue, status);
-        setStatus(optionValue);
+        console.log(optionText, optionValue, changeStatus);
+        setChangeStatus(optionText);
     }
 
     const handleChangeStatus = (e) => {
         const updateStatus = {
-            orderStatus: status
+            orderStatus: changeStatus
         }
 
         fetch(`http://localhost:5000/bookings/${_id}`, {
@@ -39,7 +39,7 @@ const ShowOrderList = ({ _id, serviceImg, userName, userEmail, serviceTitle }) =
                 if (data.modifiedCount > 0) {
                     alert('Status updated successfully');
                     console.log(data);
-                    setStatus(status);
+                    setChangeStatus(changeStatus);
                 }
                 else {
                     alert('Status not updated');
@@ -71,9 +71,6 @@ const ShowOrderList = ({ _id, serviceImg, userName, userEmail, serviceTitle }) =
         <tr>
             <td className="p-2 whitespace-nowrap">
                 <div className="flex items-center">
-                    <div className="w-10 h-10 shrink-0 mr-2 sm:mr-3">
-                        <img className="rounded-full" src={serviceImg} width="40" height="40" alt="" />
-                    </div>
                     <div className="font-medium text-slate-800">{userName}</div>
                 </div>
             </td>
@@ -85,7 +82,7 @@ const ShowOrderList = ({ _id, serviceImg, userName, userEmail, serviceTitle }) =
             </td>
             <td className="p-2 whitespace-nowrap">
                 <div className='flex justify-around'>
-                    <select id='status' value={status} onChange={getStatus}>
+                    <select id='status' value={changeStatus} onChange={getStatus}>
                         {/* <option >select status</option> */}
 
 
@@ -95,17 +92,10 @@ const ShowOrderList = ({ _id, serviceImg, userName, userEmail, serviceTitle }) =
                         {customerOrder.orderStatus === "Ongoing" ? <option value={customerOrder.orderStatus}>{customerOrder.orderStatus}</option> : null}
                         {customerOrder.orderStatus === "Done" ? <option value={customerOrder.orderStatus}>{customerOrder.orderStatus}</option> : null}
 
-                        {/* <option >Pending</option> */}
-                        if (customerOrder.orderStatus !== "Ongoing"){
-                            <option >Ongoing</option>
-
-                        }else{
-                            <option >Done</option>
-                        }
-
+                        <option>Ongoing</option>
+                        <option>Done</option>
                     </select>
                     <div>
-
                         <button onClick={handleChangeStatus} className="text-white bg-black p-2">Update</button>
                     </div>
                 </div>

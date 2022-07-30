@@ -31,7 +31,7 @@ const OrderList = () => {
             <div className="p-3">
                 {/* Table */}
                 <div className="overflow-x-auto">
-                    <table className="table-auto w-full ml-20">
+                    <table className="table-auto w-full m-20">
                         {/* Table header */}
                         <thead className="text-xs font-semibold uppercase text-slate-400 bg-slate-50">
                             <tr>
@@ -42,13 +42,13 @@ const OrderList = () => {
                                     <div className="font-semibold text-left">Email</div>
                                 </th>
                                 <th className="p-2 whitespace-nowrap">
-                                    <div className="font-semibold text-left">Service</div>
-                                </th>
-                                <th className="p-2 whitespace-nowrap">
-                                    <div className="font-semibold text-center">Status</div>
+                                    <div className="font-semibold text-left">Service Name</div>
                                 </th>
                                 <th className="p-2 whitespace-nowrap">
                                     <div className="font-semibold text-center">Edit Status</div>
+                                </th>
+                                <th className="p-2 whitespace-nowrap">
+                                    <div className="font-semibold text-center">Delete Order</div>
                                 </th>
                             </tr>
                         </thead>
