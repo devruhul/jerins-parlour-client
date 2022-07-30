@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Outlet } from 'react-router-dom';
 import ShowOrderList from '../ShowOrderList/ShowOrderList';
 
 const OrderList = () => {
@@ -66,7 +65,6 @@ const OrderList = () => {
                     </table>
                 </div>
             </div>
-            <Outlet />
         </div >
     );
 }

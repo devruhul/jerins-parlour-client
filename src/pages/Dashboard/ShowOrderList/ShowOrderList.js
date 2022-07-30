@@ -5,8 +5,6 @@ const ShowOrderList = ({ _id, serviceImg, userName, userEmail, serviceTitle }) =
     const [changeStatus, setChangeStatus] = useState("");
     const [customerOrder, setCustomerOrder] = useState({});
 
-
-
     useEffect(() => {
         fetch(`http://localhost:5000/bookings/${_id}`)
             .then(res => res.json())
@@ -47,7 +45,6 @@ const ShowOrderList = ({ _id, serviceImg, userName, userEmail, serviceTitle }) =
             })
     }
 
-    // delete order
     // delete order from database by id
     const handleOrderDelete = id => {
         const result = window.confirm('Are you sure to delete?');
@@ -83,9 +80,6 @@ const ShowOrderList = ({ _id, serviceImg, userName, userEmail, serviceTitle }) =
             <td className="p-2 whitespace-nowrap">
                 <div className='flex justify-around'>
                     <select id='status' value={changeStatus} onChange={getStatus}>
-                        {/* <option >select status</option> */}
-
-
 
                         {customerOrder.orderStatus === "Pending" ? <option value={customerOrder.orderStatus}>{customerOrder.orderStatus}</option> : null
                         }
@@ -102,7 +96,6 @@ const ShowOrderList = ({ _id, serviceImg, userName, userEmail, serviceTitle }) =
             </td>
             <td className="p-2 whitespace-nowrap">
                 <div>
-                    {/* <button className="btn btn-outline btn-secondary m-3">Update</button> */}
                     <button onClick={() => handleOrderDelete(customerOrder._id)} className="btn btn-outline btn-secondary">Delete</button>
                 </div>
             </td>
