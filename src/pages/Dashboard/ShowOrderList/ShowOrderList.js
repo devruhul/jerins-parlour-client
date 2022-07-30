@@ -2,19 +2,20 @@ import React, { useEffect, useState } from 'react';
 
 const ShowOrderList = ({ _id, serviceImg, userName, userEmail, serviceTitle }) => {
 
-    const [status, setStatus] = useState();
-    const [customerOrder, setCustomerOrder] = useState([]);
+    const [status, setStatus] = useState("");
+    const [customerOrder, setCustomerOrder] = useState({});
+
+
 
     useEffect(() => {
-        fetch('http://localhost:5000/bookings')
+        fetch(`http://localhost:5000/bookings/${_id}`)
             .then(res => res.json())
             .then(data => setCustomerOrder(data))
-    }, [])
+    }, [_id])
 
     const getStatus = () => {
         const selectStatus = document.getElementById('status');
-        const selectOption = selectStatus.option[selectStatus.selectedIndex];
-
+        const selectOption = selectStatus.options[selectStatus.selectedIndex];
         const optionText = selectOption.text;
         const optionValue = selectOption.value;
         console.log(optionText, optionValue, status);
@@ -22,12 +23,16 @@ const ShowOrderList = ({ _id, serviceImg, userName, userEmail, serviceTitle }) =
     }
 
     const handleChangeStatus = (e) => {
+        const updateStatus = {
+            orderStatus: status
+        }
+
         fetch(`http://localhost:5000/bookings/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(status)
+            body: JSON.stringify(updateStatus)
         })
             .then(res => res.json())
             .then(data => {
@@ -55,8 +60,7 @@ const ShowOrderList = ({ _id, serviceImg, userName, userEmail, serviceTitle }) =
                 .then(data => {
                     if (data.deletedCount) {
                         alert('Deleted Successfully!')
-                        const remaining = customerOrder.filter(pd => pd._id !== id);
-                        setCustomerOrder(remaining);
+                        setCustomerOrder({});
                         window.location.reload();
                     }
                 })
@@ -81,13 +85,27 @@ const ShowOrderList = ({ _id, serviceImg, userName, userEmail, serviceTitle }) =
             </td>
             <td className="p-2 whitespace-nowrap">
                 <div className='flex justify-around'>
+                    <select id='status' value={status} onChange={getStatus}>
+                        {/* <option >select status</option> */}
 
-                    <select value={status} onClick={getStatus} onChange={e => setStatus(e.target.value)}>
-                        <option>Pending</option>
-                        <option>Ongoing</option>
-                        <option>Done</option>
+
+
+                        {customerOrder.orderStatus === "Pending" ? <option value={customerOrder.orderStatus}>{customerOrder.orderStatus}</option> : null
+                        }
+                        {customerOrder.orderStatus === "Ongoing" ? <option value={customerOrder.orderStatus}>{customerOrder.orderStatus}</option> : null}
+                        {customerOrder.orderStatus === "Done" ? <option value={customerOrder.orderStatus}>{customerOrder.orderStatus}</option> : null}
+
+                        {/* <option >Pending</option> */}
+                        if (customerOrder.orderStatus !== "Ongoing"){
+                            <option >Ongoing</option>
+
+                        }else{
+                            <option >Done</option>
+                        }
+
                     </select>
                     <div>
+
                         <button onClick={handleChangeStatus} className="text-white bg-black p-2">Update</button>
                     </div>
                 </div>
