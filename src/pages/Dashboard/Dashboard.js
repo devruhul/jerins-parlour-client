@@ -59,10 +59,20 @@ const Dashboard = () => {
           <Link to="/dashboard/orderList">
             <NavItem>
               <NavIcon>
-                <i className="fa-solid fa-list" style={{ fontSize: '1.75em', color: 'black', paddingBottom: '.2em' }} />
+                <i className="fa-solid fa-list-ol" style={{ fontSize: '1.75em', color: 'black', paddingBottom: '.2em' }} />
               </NavIcon>
               <NavText style={{ paddingBottom: '1em', color: 'white' }}>
                 Orders
+              </NavText>
+            </NavItem>
+          </Link>
+          <Link to="/dashboard/manageServices">
+            <NavItem>
+              <NavIcon>
+                <i className="fa-solid fa-list-check" style={{ fontSize: '1.75em', color: 'black', paddingBottom: '.2em' }} />
+              </NavIcon>
+              <NavText style={{ paddingBottom: '1em', color: 'white' }}>
+                Manage Services
               </NavText>
             </NavItem>
           </Link>

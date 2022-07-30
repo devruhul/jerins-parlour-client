@@ -21,6 +21,7 @@ import AddService from './pages/Dashboard/AddService/AddService';
 import BookingList from './pages/Dashboard/BookingList/BookingList';
 import ServiceReview from './pages/Dashboard/ServiceReview/ServiceReview';
 import OrderList from './pages/Dashboard/OrderList/OrderList';
+import ManageServices from './pages/Dashboard/ManageServices/ManageServices';
 
 function App() {
   return (
@@ -41,7 +42,7 @@ function App() {
         }>
           <Route path="/dashboard/bookingList" element={<BookingList />} />
           <Route path="/dashboard/orderList" element={<OrderList />} />
-        
+          <Route path="/dashboard/manageServices" element={<ManageServices />} />
           <Route path="/dashboard/serviceReview" element={<ServiceReview />} />
           <Route path="/dashboard/makeAdmin" element={
             <AdminRoute>
