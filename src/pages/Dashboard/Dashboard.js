@@ -11,7 +11,7 @@ const Dashboard = () => {
   return (
     <div>
       <SideNav
-        className="bg-transparent"
+        className="bg-transparent mt-10"
       >
         <SideNav.Toggle />
         <SideNav.Nav >

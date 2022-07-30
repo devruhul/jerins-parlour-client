@@ -16,43 +16,45 @@ const Header = () => {
             position: 'fixed',
             width: '36px',
             height: '30px',
-            left: '15px',
-            top: '100px'
+            right: '15px',
+            top: '20px'
         },
         bmBurgerBars: {
-            background: '#373a47'
+            background: '#000'
         },
         bmBurgerBarsHover: {
-            background: '#a90000'
+            background: '#000'
         },
         bmCrossButton: {
             height: '29px',
             width: '29px'
         },
         bmCross: {
-            background: '#bdc3c7'
+            background: '#fff',
+            height: '30px'
         },
         bmMenuWrap: {
             position: 'fixed',
-            height: '100%'
+            top: '0',
+            height: '100%',
         },
         bmMenu: {
-            background: '#373a47',
-            padding: '3.5em 1.5em 0',
+            background: '#F63E7B',
+            padding: '4.5em 2.5em 0',
             fontSize: '1.15em'
         },
         bmMorphShape: {
-            fill: '#373a47'
+            fill: '#fff'
         },
         bmItemList: {
-            color: '#b8b7ad',
+            color: '#FFF8F5',
             padding: '0.8em'
         },
         bmItem: {
             display: 'inline-block'
         },
         bmOverlay: {
-            background: 'rgba(0, 0, 0, 0.3)'
+            background: '#FFF8F5'
         }
     }
 
@@ -101,22 +103,22 @@ const Header = () => {
                             </div>
                         </div>
                         <div className="-mr-2 flex md:hidden">
-                            <Menu right disableCloseOnEsc width={230} onStateChange={isMenuOpen} styles={styles} >
+                            <Menu right disableCloseOnEsc width={230}onStateChange={isMenuOpen} styles={styles} >
                                 <div className="md:hidden">
                                     <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                                        <Link to="/" className="text-gray-300 hover:text-gray-300 dark:hover:text-white block px-3 py-2 rounded-md text-lg font-medium" >
+                                        <Link to="/" className="text-white hover:text-white dark:hover:text-white block px-3 py-2 rounded-md text-lg font-medium" >
                                             Home
                                         </Link>
-                                        <Link to="/services" className="text-gray-300 dark:text-white block px-3 py-2 rounded-md text-lg font-medium" >
+                                        <Link to="/services" className="text-white dark:text-white block px-3 py-2 rounded-md text-lg font-medium" >
                                             Services
                                         </Link>
-                                        <Link to="/dashboard" className="text-gray-300 dark:text-white block px-3 py-2 rounded-md text-lg font-medium" >
+                                        <Link to="/dashboard" className="text-white dark:text-white block px-3 py-2 rounded-md text-lg font-medium" >
                                             Dashboard
                                         </Link>
-                                        <Link to="testimonials" className="text-gray-300 hover:text-gray-300 dark:hover:text-white block px-3 py-2 rounded-md text-lg font-medium" >
+                                        <Link to="testimonials" className="text-white hover:text-white dark:hover:text-white block px-3 py-2 rounded-md text-lg font-medium" >
                                             Testimonials
                                         </Link>
-                                        <Link to="contact" className="text-gray-300 hover:text-gray-300 dark:hover:text-white block px-3 py-2 rounded-md text-lg font-medium" >
+                                        <Link to="contact" className="text-white hover:text-white dark:hover:text-white block px-3 py-2 rounded-md text-lg font-medium" >
                                             Contact
                                         </Link>
                                     </div>
