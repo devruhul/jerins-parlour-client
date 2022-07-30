@@ -2,9 +2,8 @@ import React from 'react';
 
 const DashboardHome = () => {
     return (
-        <div>
-            <h1>This is dashboard home</h1>
-        </div>
+        <>
+        </>
     );
 };
 

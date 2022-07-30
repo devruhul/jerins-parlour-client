@@ -37,7 +37,6 @@ function App() {
         <Route path="bookingService" element={<BookingService />}>
           <Route path=":id" element={<BookingDetails />} />
         </Route>
-
         <Route path="dashboard" element={<Dashboard />
         }>
           <Route path="/dashboard/bookingList" element={<BookingList />} />
