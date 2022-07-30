@@ -43,10 +43,10 @@ const ServiceReview = () => {
     }
 
     return (
-        <form onSubmit={handleServiceReview} className="flex w-full  space-x-3 mx-auto">
+        <form onSubmit={handleServiceReview} className="flex w-full max-w-xl space-y-3 mx-auto">
             <div className="w-full  px-5 py-5 m-auto mt-5 bg-white rounded-lg shadow dark:bg-gray-800">
                 <h2 className="font-semibold text-4xl mb-4 text-slate-800">Reviews</h2>
-                <div className="grid max-w-xl grid-cols-2 gap-4 m-auto">
+                <div className="grid  grid-cols-2 gap-6 mx-auto">
                     <div className="md:col-span-2 lg:col-span-2">
                         <div className=" relative ">
                             <input name="userName" type="text" id="contact-form-user-email" className="flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
@@ -64,9 +64,9 @@ const ServiceReview = () => {
                                 placeholder="Company Name" />
                         </div>
                     </div>
-                    <div className="md:col-span-2 lg:col-span-2">
+                    <div className="md:col-span-2 lg:col-span-2 col-span-2">
                         <div className=" relative ">
-                            <textarea name="yourReview" type="text" id="contact-form-review" className="flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                            <textarea name="yourReview" type="text" id="contact-form-review" className=" resize flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
                                 required
                                 onChange={handleOnChange}
                                 placeholder="Your Review" rows="5" cols="40">
