@@ -46,7 +46,7 @@ const ShowOrderList = ({ _id, serviceImg, userName, userEmail, serviceTitle }) =
     }
 
     // delete order from database by id
-    const handleOrderDelete = id => {
+    const handleOrderDelete = () => {
         const result = window.confirm('Are you sure to delete?');
         if (result) {
             const url = `http://localhost:5000/bookings/${_id}`
