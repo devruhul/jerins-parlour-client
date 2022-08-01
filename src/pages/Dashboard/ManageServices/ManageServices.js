@@ -21,9 +21,12 @@ const ManageServices = () => {
 
     return (
         <section className="text-gray-600 body-font">
-            <div className="container px-5 py-10 mx-auto">
-                <h2 className='py-5 font-bold text-4xl'>All Services List</h2>
-                <div className="flex flex-wrap -m-4">
+            <div className="container px-5 py-5 mx-auto">
+            <div className="mb-6 text-3xl font-bold text-center text-gray-800 dark:text-white">
+                    <span className='text-span-text'>All Services </span>
+                    List
+                </div>
+                <div className="flex flex-wrap pb-4">
                     {handleServices.map(service => <ManageService
                         key={service._id}
                         {...service}

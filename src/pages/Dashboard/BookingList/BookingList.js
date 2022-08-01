@@ -19,9 +19,12 @@ const BookingList = () => {
     }
 
     return (
-        <section className="text-gray-600 body-font">
-            <div className="container px-5 py-10 mx-auto">
-                <h2 className='py-5 font-bold text-4xl'>Booking List</h2>
+        <section className="container  px-5 py-5 text-gray-600 body-font">
+            <div className=" mx-auto">
+                <div className="mb-6 text-3xl font-bold text-center text-gray-800 dark:text-white">
+                    <span className='text-span-text'>Booking </span>
+                    List
+                </div>
                 <div className="flex flex-wrap -m-4">
                     {bookings.map(booking => (
                         <div key={booking._id} className="xl:w-1/3 md:w-1/2 p-10">
