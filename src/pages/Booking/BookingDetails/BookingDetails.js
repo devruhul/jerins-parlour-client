@@ -24,7 +24,6 @@ const BookingDetails = () => {
         }
     };
 
-
     // handle change of input
     const handleOnBlur = (e) => {
         const nameInputField = e.target.name

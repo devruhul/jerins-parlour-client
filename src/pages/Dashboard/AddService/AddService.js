@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
 const AddService = () => {
-
     const [booking, setBooking] = useState({});
 
     const handleOnBlur = (e) => {
@@ -24,7 +23,7 @@ const AddService = () => {
             imageLink: '',
         });
 
-        fetch("http://localhost:5000/services/", {
+        fetch("http://localhost:5000/services", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -38,7 +37,6 @@ const AddService = () => {
                     alert("Service added successfully");
                     e.target.reset()
                 }
-                console.log(data);
             })
     }
     return (

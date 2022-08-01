@@ -18,9 +18,9 @@ import Dashboard from './pages/Dashboard/Dashboard';
 import AdminRoute from './pages/Authentication/AdminRoute/AdminRoute';
 import MakeAdmin from './pages/Dashboard/MakeAdmin/MakeAdmin';
 import AddService from './pages/Dashboard/AddService/AddService';
-import BookingList from './pages/Dashboard/BookingList/BookingList';
+import BookingsLists from './pages/Dashboard/BookingsLists/BookingsLists';
 import ServiceReview from './pages/Dashboard/ServiceReview/ServiceReview';
-import OrderList from './pages/Dashboard/OrderList/OrderList';
+import OrdersLists from './pages/Dashboard/OrdersLists/OrdersLists';
 import ManageServices from './pages/Dashboard/ManageServices/ManageServices';
 
 function App() {
@@ -39,8 +39,8 @@ function App() {
         </Route>
         <Route path="dashboard" element={<Dashboard />
         }>
-          <Route path="/dashboard/bookingList" element={<BookingList />} />
-          <Route path="/dashboard/orderList" element={<OrderList />} />
+          <Route path="/dashboard/bookingList" element={<BookingsLists />} />
+          <Route path="/dashboard/orderList" element={<OrdersLists />} />
           <Route path="/dashboard/manageServices" element={<ManageServices />} />
           <Route path="/dashboard/serviceReview" element={<ServiceReview />} />
           <Route path="/dashboard/makeAdmin" element={

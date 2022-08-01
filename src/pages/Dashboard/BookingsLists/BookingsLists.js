@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
 
-const BookingList = () => {
-    const [bookings, setBookings] = useState([]);
+const BookingsLists = () => {
+    const [bookingsList, setBookingsLists] = useState([]);
 
     useEffect(() => {
         fetch('http://localhost:5000/bookings')
             .then(res => res.json())
-            .then(data => setBookings(data))
-    }, [bookings]);
+            .then(data => setBookingsLists(data))
+    }, []);
 
     // loading
-    if (bookings.length === 0) {
+    if (bookingsList.length === 0) {
         return (
             <div className='text-center my-6'>
                 <i className="fa-solid fa-3x fa-spinner"></i>
@@ -26,22 +26,22 @@ const BookingList = () => {
                     List
                 </div>
                 <div className="flex flex-wrap -m-4">
-                    {bookings.map(booking => (
-                        <div key={booking._id} className="xl:w-1/3 md:w-1/2 p-10">
+                    {bookingsList.map(bookingList => (
+                        <div key={bookingList._id} className="xl:w-1/3 md:w-1/2 p-10">
                             <div className="border border-gray-200 p-6 rounded-lg">
                                 <div className="flex flex-wrap ">
                                     <div className="text-gray-600 flex justify-between">
                                         <div>
-                                            <img src={booking.serviceImg} alt="" className=' w-25' />
+                                            <img src={bookingList.serviceImg} alt="" className=' w-25' />
                                         </div>
                                         <div>
-                                            <p className="text-white bg-pink-500 p-2">{booking.orderStatus}</p>
+                                            <p className="text-white bg-pink-500 p-2">{bookingList.orderStatus}</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div className='text-right'>
-                                    <h2 className="text-lg text-gray-900 font-medium title-font m-2">{booking.serviceTitle}</h2>
-                                    <p className="leading-relaxed text-base ">{booking.serviceDescription}</p>
+                                    <h2 className="text-lg text-gray-900 font-medium title-font m-2">{bookingList.serviceTitle}</h2>
+                                    <p className="leading-relaxed text-base ">{bookingList.serviceDescription}</p>
                                 </div>
                             </div>
                         </div>
@@ -52,4 +52,4 @@ const BookingList = () => {
     );
 };
 
-export default BookingList;
+export default BookingsLists;
