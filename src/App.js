@@ -22,58 +22,61 @@ import BookingsLists from './pages/Dashboard/BookingsLists/BookingsLists';
 import ServiceReview from './pages/Dashboard/ServiceReview/ServiceReview';
 import OrdersLists from './pages/Dashboard/OrdersLists/OrdersLists';
 import ManageServices from './pages/Dashboard/ManageServices/ManageServices';
+import ContextProvider from './Context/ContextProvider/ContextProvider';
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="services" element={
-          <PrivateRoute>
-            <Services />
-          </PrivateRoute>}>
-        </Route>
-        <Route path="bookingService" element={<BookingService />}>
-          <Route path=":id" element={<BookingDetails />} />
-        </Route>
-        <Route path="dashboard" element={
-          <PrivateRoute>
-            <Dashboard />
-          </PrivateRoute>
-        }>
-          <Route path="/dashboard/bookingList" element={<BookingsLists />} />
-          <Route path="/dashboard/orderList" element={
-            <AdminRoute>
-              <OrdersLists />
-            </AdminRoute>
-          } />
-          <Route path="/dashboard/manageServices" element={
+      <ContextProvider>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="services" element={
             <PrivateRoute>
-              <ManageServices />
+              <Services />
+            </PrivateRoute>}>
+          </Route>
+          <Route path="bookingService" element={<BookingService />}>
+            <Route path=":id" element={<BookingDetails />} />
+          </Route>
+          <Route path="dashboard" element={
+            <PrivateRoute>
+              <Dashboard />
             </PrivateRoute>
-          } />
-          <Route path="/dashboard/serviceReview" element={<ServiceReview />} />
-          <Route path="/dashboard/makeAdmin" element={
-            <AdminRoute>
-              <MakeAdmin />
-            </AdminRoute>
-          } />
-          <Route path="/dashboard/addService" element={
-            <AdminRoute>
-              <AddService />
-            </AdminRoute>
-          } />
-        </Route>
-        <Route path="exploreServices" element={<ExploreServices />} />
-        <Route path="feature" element={<Feature />} />
-        <Route path="testimonials" element={<Testimonials />} />
-        <Route path="contact" element={<ContactUs />} />
-        <Route path="login" element={<Login />} />
-        <Route path="register" element={<Register />} />
-        <Route path="/*" element={<NotFound />} />
-      </Routes>
-      <Footer />
+          }>
+            <Route path="/dashboard/bookingList" element={<BookingsLists />} />
+            <Route path="/dashboard/orderList" element={
+              <AdminRoute>
+                <OrdersLists />
+              </AdminRoute>
+            } />
+            <Route path="/dashboard/manageServices" element={
+              <PrivateRoute>
+                <ManageServices />
+              </PrivateRoute>
+            } />
+            <Route path="/dashboard/serviceReview" element={<ServiceReview />} />
+            <Route path="/dashboard/makeAdmin" element={
+              <AdminRoute>
+                <MakeAdmin />
+              </AdminRoute>
+            } />
+            <Route path="/dashboard/addService" element={
+              <AdminRoute>
+                <AddService />
+              </AdminRoute>
+            } />
+          </Route>
+          <Route path="exploreServices" element={<ExploreServices />} />
+          <Route path="feature" element={<Feature />} />
+          <Route path="testimonials" element={<Testimonials />} />
+          <Route path="contact" element={<ContactUs />} />
+          <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
+          <Route path="/*" element={<NotFound />} />
+        </Routes>
+        <Footer />
+      </ContextProvider>
     </div >
   );
 }
