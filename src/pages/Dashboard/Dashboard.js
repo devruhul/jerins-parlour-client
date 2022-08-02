@@ -5,8 +5,10 @@ import SideNav, { NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import { Link, Outlet } from 'react-router-dom';
 import DashboardHome from './DashboardHome/DashboardHome';
+import useFirebase from '../hooks/useFirebase';
 
 const Dashboard = () => {
+  let { admin } = useFirebase();
 
   return (
     <div>
@@ -25,7 +27,7 @@ const Dashboard = () => {
               </NavText>
             </NavItem>
           </Link>
-          <Link to="/dashboard/addService">
+          {admin && <Link to="/dashboard/addService">
             <NavItem>
               <NavIcon>
                 <i className="fa-solid fa-plus" style={{ fontSize: '1.75em', color: 'black', paddingBottom: '.2em' }} />
@@ -34,7 +36,7 @@ const Dashboard = () => {
                 Add Service
               </NavText>
             </NavItem>
-          </Link>
+          </Link>}
           <Link to="/dashboard/makeAdmin">
             <NavItem>
               <NavIcon>
@@ -45,7 +47,16 @@ const Dashboard = () => {
               </NavText>
             </NavItem>
           </Link>
-
+          <Link to="/dashboard/manageServices">
+            <NavItem>
+              <NavIcon>
+                <i className="fa-solid fa-list-check" style={{ fontSize: '1.75em', color: 'black', paddingBottom: '.2em' }} />
+              </NavIcon>
+              <NavText style={{ paddingBottom: '1em', color: 'white' }}>
+                Manage Services
+              </NavText>
+            </NavItem>
+          </Link>
           <Link to="/dashboard/bookingList">
             <NavItem>
               <NavIcon>
@@ -63,16 +74,6 @@ const Dashboard = () => {
               </NavIcon>
               <NavText style={{ paddingBottom: '1em', color: 'white' }}>
                 Orders
-              </NavText>
-            </NavItem>
-          </Link>
-          <Link to="/dashboard/manageServices">
-            <NavItem>
-              <NavIcon>
-                <i className="fa-solid fa-list-check" style={{ fontSize: '1.75em', color: 'black', paddingBottom: '.2em' }} />
-              </NavIcon>
-              <NavText style={{ paddingBottom: '1em', color: 'white' }}>
-                Manage Services
               </NavText>
             </NavItem>
           </Link>

@@ -43,12 +43,21 @@ function App() {
           </PrivateRoute>
         }>
           <Route path="/dashboard/bookingList" element={<BookingsLists />} />
-          <Route path="/dashboard/orderList" element={<OrdersLists />} />
-          <Route path="/dashboard/manageServices" element={<ManageServices />} />
+          <Route path="/dashboard/orderList" element={
+            <AdminRoute>
+              <OrdersLists />
+            </AdminRoute>
+          } />
+          <Route path="/dashboard/manageServices" element={
+            <PrivateRoute>
+              <ManageServices />
+            </PrivateRoute>
+          } />
           <Route path="/dashboard/serviceReview" element={<ServiceReview />} />
           <Route path="/dashboard/makeAdmin" element={
-
-            <MakeAdmin />
+            <AdminRoute>
+              <MakeAdmin />
+            </AdminRoute>
           } />
           <Route path="/dashboard/addService" element={
             <AdminRoute>
