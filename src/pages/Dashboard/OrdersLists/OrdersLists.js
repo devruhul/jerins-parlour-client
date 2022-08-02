@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import OrderList from '../OrderList/OrderList';
+import OrderList from '../OrdersLists/OrderList/OrderList';
 
 const OrdersLists = () => {
 

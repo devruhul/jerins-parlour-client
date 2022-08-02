@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, getIdToken } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import initializeFirebase from "../Authentication/Firebase/firebase.init";
 
@@ -8,8 +8,8 @@ initializeFirebase();
 const useFirebase = () => {
     const [parlourUser, setParlourUser] = useState({});
     const [loading, setLoading] = useState(true);
-    // const [admin, setAdmin] = useState(false)
-    // const [authToken, setAuthToken] = useState('');
+    const [admin, setAdmin] = useState(false)
+    const [authToken, setAuthToken] = useState('');
     const [error, setError] = useState("");
 
     const googleProvider = new GoogleAuthProvider();
@@ -21,12 +21,12 @@ const useFirebase = () => {
     const signInWithGoogle = (location) => {
         signInWithPopup(auth, googleProvider)
             .then((result) => {
-                // The signed-in user info.
-                const user = result.user;
-                setParlourUser(user);
                 let destination = location?.state?.from || "/"
                 navigate(destination)
-                console.log(user);
+                // The signed-in user info.
+                const user = result.user;
+                saveParlourUser(user.email, user.displayName, 'PUT')
+                setParlourUser(user);
             }).catch((error) => {
                 // Handle Errors here.
                 const errorCode = error.code;
@@ -54,10 +54,16 @@ const useFirebase = () => {
         setLoading(true);
         createUserWithEmailAndPassword(auth, email, password)
             .then((result) => {
-                const newUser = result.user;
+                const newUser = { email, displayName: name }
                 setParlourUser(newUser);
                 navigate('/')
                 setError('')
+                saveParlourUser(email, name, 'POST')
+                updateProfile(auth.currentUser, {
+                    displayName: name
+                }).then(() => {
+                }).catch((error) => {
+                });
             })
             .catch((error) => {
                 const errorMessage = error.message;
@@ -72,7 +78,6 @@ const useFirebase = () => {
             .then((userCredential) => {
                 let destination = location?.state?.from || "/"
                 navigate(destination);
-                setParlourUser(userCredential.user);
                 setError('');
             })
             .catch((error) => {
@@ -86,6 +91,10 @@ const useFirebase = () => {
         const unsubscribed = onAuthStateChanged(auth, (user) => {
             if (user) {
                 setParlourUser(user);
+                getIdToken(user)
+                    .then((idToken) => {
+                        setAuthToken(idToken)
+                    })
             } else {
                 setParlourUser({});
             }
@@ -95,6 +104,15 @@ const useFirebase = () => {
         return () => unsubscribed
 
     }, [auth]);
+
+    // // check if user is admin or not
+    // useEffect(() => {
+    //     fetch(`http://localhost:5000/users/${parlourUser.email}`)
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             setAdmin(data.admin)
+    //         })
+    // }, [parlourUser.email])
 
 
     const parlourUserlogout = () => {
@@ -109,6 +127,22 @@ const useFirebase = () => {
             .finally(() => setLoading(false));
     }
 
+    const saveParlourUser = (email, displayName, method) => {
+        const user = { email, displayName }
+        fetch('http://localhost:5000/users', {
+            method: method,
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log('User saved successfully')
+            })
+    }
+
     return {
         signInWithGoogle,
         // signInWithFacebook,
@@ -116,6 +150,8 @@ const useFirebase = () => {
         signInParlourUser,
         parlourUser,
         parlourUserlogout,
+        authToken,
+        admin,
         error,
         loading
     }

@@ -37,19 +37,23 @@ function App() {
         <Route path="bookingService" element={<BookingService />}>
           <Route path=":id" element={<BookingDetails />} />
         </Route>
-        <Route path="dashboard" element={<Dashboard />
+        <Route path="dashboard" element={
+          <PrivateRoute>
+            <Dashboard />
+          </PrivateRoute>
         }>
           <Route path="/dashboard/bookingList" element={<BookingsLists />} />
           <Route path="/dashboard/orderList" element={<OrdersLists />} />
           <Route path="/dashboard/manageServices" element={<ManageServices />} />
           <Route path="/dashboard/serviceReview" element={<ServiceReview />} />
           <Route path="/dashboard/makeAdmin" element={
-            <AdminRoute>
-              <MakeAdmin />
-            </AdminRoute>
+
+            <MakeAdmin />
           } />
           <Route path="/dashboard/addService" element={
-            <AddService />
+            <AdminRoute>
+              <AddService />
+            </AdminRoute>
           } />
         </Route>
         <Route path="exploreServices" element={<ExploreServices />} />
