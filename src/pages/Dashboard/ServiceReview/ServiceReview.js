@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import useFirebase from '../../hooks/useFirebase';
+import useAuth from '../../hooks/useAuth';
 
 const ServiceReview = () => {
-    const { parlourUser } = useFirebase();
+    const { parlourUser } = useAuth();
 
     const [serviceReview, setServiceReview] = useState({})
 

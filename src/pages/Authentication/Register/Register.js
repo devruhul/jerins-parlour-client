@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import useFirebase from '../../hooks/useFirebase';
+import useAuth from '../../hooks/useAuth';
+
 const Register = () => {
     const [createUserData, setCreateUserData] = useState({})
-    const { createParlourUser } = useFirebase();
+    const { createParlourUser } = useAuth();
 
 
     const location = useLocation()

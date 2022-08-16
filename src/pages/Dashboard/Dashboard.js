@@ -5,10 +5,10 @@ import SideNav, { NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import { Link, Outlet } from 'react-router-dom';
 import DashboardHome from './DashboardHome/DashboardHome';
-import useFirebase from '../hooks/useFirebase';
+import useAuth from '../hooks/useAuth';
 
 const Dashboard = () => {
-  let { admin } = useFirebase();
+  let { admin } = useAuth();
 
   return (
     <div>
@@ -37,7 +37,7 @@ const Dashboard = () => {
               </NavText>
             </NavItem>
           </Link>}
-          <Link to="/dashboard/makeAdmin">
+          {admin && <Link to="/dashboard/makeAdmin">
             <NavItem>
               <NavIcon>
                 <i className="fa-solid fa-user-plus" style={{ fontSize: '1.75em', color: 'black', paddingBottom: '.2em' }} />
@@ -46,8 +46,8 @@ const Dashboard = () => {
                 Make Admin
               </NavText>
             </NavItem>
-          </Link>
-          <Link to="/dashboard/manageServices">
+          </Link>}
+          {admin && <Link to="/dashboard/manageServices">
             <NavItem>
               <NavIcon>
                 <i className="fa-solid fa-list-check" style={{ fontSize: '1.75em', color: 'black', paddingBottom: '.2em' }} />
@@ -56,8 +56,8 @@ const Dashboard = () => {
                 Manage Services
               </NavText>
             </NavItem>
-          </Link>
-          <Link to="/dashboard/bookingList">
+          </Link>}
+          {!admin && <Link to="/dashboard/bookingList">
             <NavItem>
               <NavIcon>
                 <i className="fa-solid fa-list" style={{ fontSize: '1.75em', color: 'black', paddingBottom: '.2em' }} />
@@ -66,8 +66,8 @@ const Dashboard = () => {
                 Bookings
               </NavText>
             </NavItem>
-          </Link>
-          <Link to="/dashboard/orderList">
+          </Link>}
+          {admin && <Link to="/dashboard/ordersList">
             <NavItem>
               <NavIcon>
                 <i className="fa-solid fa-list-ol" style={{ fontSize: '1.75em', color: 'black', paddingBottom: '.2em' }} />
@@ -76,8 +76,8 @@ const Dashboard = () => {
                 Orders
               </NavText>
             </NavItem>
-          </Link>
-          <Link to="/dashboard/serviceReview">
+          </Link>}
+          {!admin && <Link to="/dashboard/serviceReview">
             <NavItem>
               <NavIcon>
                 <i className="fa-regular fa-message" style={{ fontSize: '1.75em', color: 'black', paddingBottom: '.2em' }} />
@@ -86,7 +86,7 @@ const Dashboard = () => {
                 Review
               </NavText>
             </NavItem>
-          </Link>
+          </Link>}
         </SideNav.Nav>
       </SideNav >
       <DashboardHome />

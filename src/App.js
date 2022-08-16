@@ -45,7 +45,7 @@ function App() {
             </PrivateRoute>
           }>
             <Route path="/dashboard/bookingList" element={<BookingsLists />} />
-            <Route path="/dashboard/orderList" element={
+            <Route path="/dashboard/ordersList" element={
               <AdminRoute>
                 <OrdersLists />
               </AdminRoute>
@@ -57,9 +57,9 @@ function App() {
             } />
             <Route path="/dashboard/serviceReview" element={<ServiceReview />} />
             <Route path="/dashboard/makeAdmin" element={
-              <AdminRoute>
+              <>
                 <MakeAdmin />
-              </AdminRoute>
+              </>
             } />
             <Route path="/dashboard/addService" element={
               <AdminRoute>

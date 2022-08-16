@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import useFirebase from '../../hooks/useFirebase';
+import useAuth from '../../hooks/useAuth';
 import './BookingDetails.css';
 
 const BookingDetails = () => {
     const { id } = useParams();
-    const { parlourUser } = useFirebase();
+    const { parlourUser } = useAuth();
     const initialBookingInfo = {
         parlourUserName: parlourUser?.displayName,
         email: parlourUser?.email,

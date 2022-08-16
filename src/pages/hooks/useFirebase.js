@@ -107,7 +107,7 @@ const useFirebase = () => {
 
     // // check if user is admin or not
     useEffect(() => {
-        fetch(`http://localhost:5000/users/${parlourUser.email}`)
+        fetch(`http://localhost:5000/users/${parlourUser?.email}`)
             .then(res => res.json())
             .then(data => {
                 setAdmin(data.admin)

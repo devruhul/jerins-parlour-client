@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import useFirebase from '../../hooks/useFirebase';
+import useAuth from '../../hooks/useAuth';
 
 const MakeAdmin = () => {
     const [email, setEmail] = useState('');
-    const { authToken } = useFirebase()
+    const { authToken } = useAuth()
 
     const handleOnChange = (e) => {
          setEmail(e.target.value)

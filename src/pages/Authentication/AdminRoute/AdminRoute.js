@@ -1,10 +1,9 @@
 import React from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
-import useFirebase from '../../hooks/useFirebase';
+import useAuth from '../../hooks/useAuth';
 
 const AdminRoute = ({ children }) => {
-    const { parlourUser, loading, admin } = useFirebase();
-    // console.log('hello', admin);
+    const { parlourUser, loading, admin } = useAuth();
     let location = useLocation();
 
     if (loading) {

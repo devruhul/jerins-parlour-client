@@ -2,10 +2,10 @@ import React from 'react';
 import jplogo from '../../../assets/images/jp-logo.png'
 import { stack as Menu } from 'react-burger-menu'
 import { Link } from 'react-router-dom';
-import useFirebase from '../../hooks/useFirebase';
+import useAuth from '../../hooks/useAuth';
 
 const Header = () => {
-    const { parlourUser, parlourUserlogout } = useFirebase()
+    const { parlourUser, parlourUserlogout } = useAuth()
 
     const isMenuOpen = function (state) {
         return state.isOpen;
