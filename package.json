@@ -1,6 +1,9 @@
 {
   "name": "jerins-parlour-client",
   "version": "0.1.0",
+  "author": "Ruhul Amin",
+  "license": "MIT",
+  "description": "A simple React app for Jerin's Parlour",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
