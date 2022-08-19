@@ -5,7 +5,7 @@ import useAuth from '../../hooks/useAuth';
 const AdminRoute = ({ children }) => {
     const { parlourUser, loading, admin } = useAuth();
     let location = useLocation();
-
+    
     if (loading) {
         return (
             <div className='text-center my-6'>
@@ -14,7 +14,7 @@ const AdminRoute = ({ children }) => {
         )
     }
 
-    if (parlourUser?.email && admin) {
+    if (parlourUser.email && admin) {
         return children;
     }
 
