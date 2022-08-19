@@ -48,21 +48,21 @@ const AddService = () => {
                 <div className="grid  grid-cols-2 gap-6 mx-auto">
                     <div className="md:col-span-2 lg:col-span-2">
                         <div className=" relative ">
-                            <input name="serviceName" onBlur={handleOnBlur} type="text" id="contact-form-name" className="flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Service Title" />
+                            <input required name="serviceName" onBlur={handleOnBlur} type="text" id="contact-form-name" className="flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Service Title" />
                         </div>
                     </div>
                     <div className="md:col-span-2 lg:col-span-2">
                         <div className=" relative ">
-                            <input name="description" onBlur={handleOnBlur} type="text" id="contact-form-description" className="flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Service Description" />
+                            <input required name="description" onBlur={handleOnBlur} type="text" id="contact-form-description" className="flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Service Description" />
                         </div>
                     </div>
                     <div className="col-span-2 lg:col-span-2">
                         <div className=" relative ">
-                            <input name="price" onBlur={handleOnBlur} type="number" id="contact-form-price" className="flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Service Price" />
+                            <input required name="price" onBlur={handleOnBlur} type="number" id="contact-form-price" className="flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Service Price" />
                         </div>
                     </div>
                     <div className="md:col-span-2 lg:col-span-2 col-span-2">
-                        <textarea name="imageLink" onBlur={handleOnBlur} className="flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" id="comment" placeholder="Service image link" rows="5" cols="40">
+                        <textarea required name="imageLink" onBlur={handleOnBlur} className="flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" id="comment" placeholder="Service image link" rows="5" cols="40">
                         </textarea>
                     </div>
                     <div className="col-span-2">
