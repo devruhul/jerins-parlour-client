@@ -5,7 +5,7 @@ const ManageServices = () => {
     const [handleServices, setHandleServices] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/services')
+        fetch('http://localhost:5000/allServices')
             .then(res => res.json())
             .then(data => setHandleServices(data))
     }, []);
