@@ -6,7 +6,7 @@ const MakeAdmin = () => {
     const { authToken } = useAuth()
 
     const handleOnChange = (e) => {
-         setEmail(e.target.value)
+        setEmail(e.target.value)
     }
 
     const handleMakeAdmin = (e) => {
@@ -22,13 +22,13 @@ const MakeAdmin = () => {
         })
             .then(res => res.json())
             .then(data => {
-                if (data.modifiedCount) {
+                if (data.modifiedCount > 0) {
                     alert('admin added successfully')
                     e.target.reset();
                 } else {
                     alert('admin existed')
-                    e.target.reset();
                 }
+
             })
 
         e.preventDefault();
