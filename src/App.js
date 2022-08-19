@@ -39,6 +39,9 @@ function App() {
           <Route path="bookingService" element={<BookingService />}>
             <Route path=":id" element={<BookingDetails />} />
           </Route>
+          <Route path="exploreService" element={<BookingService />}>
+            <Route path=":id" element={<BookingDetails />} />
+          </Route>
           <Route path="dashboard" element={
             <PrivateRoute>
               <Dashboard />
