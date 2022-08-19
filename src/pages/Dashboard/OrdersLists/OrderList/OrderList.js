@@ -57,8 +57,8 @@ const OrderList = ({ _id, serviceImg, userName, userEmail, serviceTitle }) => {
                 .then(data => {
                     if (data.deletedCount) {
                         alert('Deleted Successfully!')
-                        setCustomerOrder({});
                         window.location.reload();
+                        setCustomerOrder({});
                     }
                 })
         }
