@@ -57,7 +57,7 @@ const Dashboard = () => {
               </NavText>
             </NavItem>
           </Link>}
-          {!admin && <Link to="/dashboard/bookingList">
+          <Link to="/dashboard/bookingList">
             <NavItem>
               <NavIcon>
                 <i className="fa-solid fa-list" style={{ fontSize: '1.75em', color: 'black', paddingBottom: '.2em' }} />
@@ -66,7 +66,7 @@ const Dashboard = () => {
                 Bookings
               </NavText>
             </NavItem>
-          </Link>}
+          </Link>
           {admin && <Link to="/dashboard/ordersList">
             <NavItem>
               <NavIcon>
