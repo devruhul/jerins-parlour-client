@@ -14,10 +14,8 @@ const OrderList = ({ _id, serviceImg, userName, userEmail, serviceTitle }) => {
     const getStatus = () => {
         const selectStatus = document.getElementById('status');
         const selectOption = selectStatus.options[selectStatus.selectedIndex];
-        const optionText = selectOption.text;
         const optionValue = selectOption.value;
-        console.log(optionText, optionValue, changeStatus);
-        setChangeStatus(optionText);
+        setChangeStatus(optionValue);
     }
 
     const handleChangeStatus = (e) => {
@@ -36,7 +34,6 @@ const OrderList = ({ _id, serviceImg, userName, userEmail, serviceTitle }) => {
             .then(data => {
                 if (data.modifiedCount > 0) {
                     alert('Status updated successfully');
-                    console.log(data);
                     setChangeStatus(changeStatus);
                 }
                 else {
