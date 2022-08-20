@@ -1,19 +1,21 @@
 import React, { useEffect, useState } from 'react';
+import useAuth from '../../hooks/useAuth';
 
 const BookingsLists = () => {
+    const { parlourUser } = useAuth()
     const [bookingsList, setBookingsLists] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/bookings')
+        fetch(`http://localhost:5000/bookings/${parlourUser.email}`)
             .then(res => res.json())
             .then(data => setBookingsLists(data))
-    }, []);
+    }, [parlourUser.email]);
 
     // loading
     if (bookingsList.length === 0) {
         return (
             <div className='text-center my-6'>
-                <i className="fa-solid fa-3x fa-spinner"></i>
+                <h2 className='mb-6 text-3xl font-bold text-center text-gray-800 dark:text-white'>There is no booking, please book a service and check back later</h2>
             </div>
         )
     }
