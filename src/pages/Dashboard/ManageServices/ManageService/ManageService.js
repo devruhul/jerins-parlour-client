@@ -5,7 +5,7 @@ const ManageService = ({ _id, serviceName, imageLink, price, description }) => {
     const handleDeleteService = () => {
         const result = window.confirm('Are you sure to delete?');
         if (result) {
-            const url = `http://localhost:5000/services/${_id}`
+            const url = `https://jerins-parlour-backend.herokuapp.com/services/${_id}`
             fetch(url, {
                 method: 'DELETE'
             })
