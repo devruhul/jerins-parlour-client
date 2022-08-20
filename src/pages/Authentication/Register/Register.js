@@ -51,7 +51,7 @@ const Register = () => {
                             <span className="rounded-l-md inline-flex  items-center px-3 border-t bg-white border-l border-b  border-gray-300 text-gray-500 shadow-sm text-sm">
                                 <i className="fa-solid fa-id-card"></i>
                             </span>
-                            <input type="text" name="name" onBlur={handleOnBlur} id="sign-up-name" className="flex-1 appearance-none border border-pink-300 w-full py-3 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Your Name" />
+                            <input required type="text" name="name" onBlur={handleOnBlur} id="sign-up-name" className="flex-1 appearance-none border border-pink-300 w-full py-3 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Your Name" />
                         </div>
                     </div>
 
@@ -60,7 +60,7 @@ const Register = () => {
                             <span className="rounded-l-md inline-flex  items-center px-3 border-t bg-white border-l border-b  border-gray-300 text-gray-500 shadow-sm text-sm">
                                 <i className="fa-solid fa-envelope"></i>
                             </span>
-                            <input type="text" name="email" onBlur={handleOnBlur} id="sign-up-email" className="flex-1 appearance-none border border-pink-300 w-full py-3 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Your Email" />
+                            <input required type="email" name="email" onBlur={handleOnBlur} id="sign-up-email" className="flex-1 appearance-none border border-pink-300 w-full py-3 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Your Email" />
                         </div>
                     </div>
                     <div className="flex flex-col mb-4">
@@ -68,7 +68,7 @@ const Register = () => {
                             <span className="rounded-l-md inline-flex  items-center px-3 border-t bg-white border-l border-b  border-gray-300 text-gray-500 shadow-sm text-sm">
                                 <i className="fa-solid fa-lock"></i>
                             </span>
-                            <input type="password" name="password" onBlur={handleOnBlur} id="sign-up-password" className="flex-1 appearance-none border border-pink-300 w-full py-3 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Your Password" />
+                            <input required type="password" name="password" onBlur={handleOnBlur} id="sign-up-password" className="flex-1 appearance-none border border-pink-300 w-full py-3 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Your Password" />
                         </div>
                     </div>
                     <div className="flex flex-col mb-8">
@@ -76,7 +76,7 @@ const Register = () => {
                             <span className="rounded-l-md inline-flex  items-center px-3 border-t bg-white border-l border-b  border-gray-300 text-gray-500 shadow-sm text-sm">
                                 <i className="fa-solid fa-lock"></i>
                             </span>
-                            <input type="password" name="userConfirmPassword" onBlur={handleOnBlur} id="sign-up-confirm-password" className="flex-1 appearance-none border border-pink-300 w-full py-3 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Confirm Password" />
+                            <input required type="password" name="userConfirmPassword" onBlur={handleOnBlur} id="sign-up-confirm-password" className="flex-1 appearance-none border border-pink-300 w-full py-3 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Confirm Password" />
                         </div>
                     </div>
                     <div className="flex items-center mb-6 -mt-4">
