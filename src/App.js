@@ -60,9 +60,9 @@ function App() {
             } />
             <Route path="/dashboard/serviceReview" element={<ServiceReview />} />
             <Route path="/dashboard/makeAdmin" element={
-              <>
+              <AdminRoute>
                 <MakeAdmin />
-              </>
+              </AdminRoute>
             } />
             <Route path="/dashboard/addService" element={
               <AdminRoute>
