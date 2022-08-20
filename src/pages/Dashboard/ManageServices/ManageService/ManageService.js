@@ -27,7 +27,7 @@ const ManageService = ({ _id, serviceName, imageLink, price, description }) => {
                             <img src={imageLink} alt="" className=' w-50' />
                         </div>
                         <div>
-                            <button onClick={() => handleDeleteService(_id)} className="text-white bg-pink-500 p-2">Delete</button>
+                            <button onClick={() => handleDeleteService(_id)} className="bg-pink-500 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded-full">Delete</button>
                         </div>
                     </div>
                 </div>

@@ -40,6 +40,7 @@ const OrderList = ({ _id, serviceImg, userName, userEmail, serviceTitle }) => {
                     alert('Status not updated');
                 }
             })
+        e.preventDefault();
     }
 
     // delete order from database by id
@@ -78,9 +79,11 @@ const OrderList = ({ _id, serviceImg, userName, userEmail, serviceTitle }) => {
                 <div className='flex justify-around'>
                     <select id='status' value={changeStatus} onChange={getStatus}>
 
-                        {customerOrder.orderStatus === "Pending" ? <option value={customerOrder.orderStatus}>{customerOrder.orderStatus}</option> : null
+                        {customerOrder.orderStatus === "Pending" ? <option>{customerOrder.orderStatus}</option> : null
                         }
+
                         {customerOrder.orderStatus === "Ongoing" ? <option value={customerOrder.orderStatus}>{customerOrder.orderStatus}</option> : null}
+
                         {customerOrder.orderStatus === "Done" ? <option value={customerOrder.orderStatus}>{customerOrder.orderStatus}</option> : null}
 
                         <option>Ongoing</option>

@@ -34,7 +34,7 @@ const BookingList = ({ serviceImg, serviceDescription, orderStatus, serviceTitle
                         </div>
                         {/* cancel order button */}
                         <div>
-                            <button onClick={handleCancelOrder} className='bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full'>
+                            <button onClick={handleCancelOrder} className='bg-pink-500 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded-full'>
                                 Cancel
                             </button>
                         </div>
