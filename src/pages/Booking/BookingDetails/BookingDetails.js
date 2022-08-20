@@ -36,7 +36,7 @@ const BookingDetails = () => {
     }
 
     useEffect(() => {
-        fetch(`http://localhost:5000/services/${id}`)
+        fetch(`https://jerins-parlour-backend.herokuapp.com/services/${id}`)
             .then(res => res.json())
             .then(data => setBooking(data)
             )
@@ -51,7 +51,7 @@ const BookingDetails = () => {
         })
 
         // send booking service data to server side
-        fetch('http://localhost:5000/bookings', {
+        fetch('https://jerins-parlour-backend.herokuapp.com/bookings', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
