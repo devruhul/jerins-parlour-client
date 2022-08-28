@@ -6,7 +6,7 @@ const OrderList = ({ _id, serviceImg, userName, userEmail, serviceTitle }) => {
     const [customerOrder, setCustomerOrder] = useState({});
 
     useEffect(() => {
-        fetch(`https://jerins-parlour-backend.herokuapp.com/bookings/${_id}`)
+        fetch(`https://jerins-parlour-backend.vercel.app/bookings/${_id}`)
             .then(res => res.json())
             .then(data => setCustomerOrder(data))
     }, [_id])
@@ -23,7 +23,7 @@ const OrderList = ({ _id, serviceImg, userName, userEmail, serviceTitle }) => {
             orderStatus: changeStatus
         }
 
-        fetch(`https://jerins-parlour-backend.herokuapp.com/bookings/${_id}`, {
+        fetch(`https://jerins-parlour-backend.vercel.app/bookings/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -47,7 +47,7 @@ const OrderList = ({ _id, serviceImg, userName, userEmail, serviceTitle }) => {
     const handleOrderDelete = () => {
         const result = window.confirm('Are you sure to delete?');
         if (result) {
-            const url = `https://jerins-parlour-backend.herokuapp.com/bookings/${_id}`
+            const url = `https://jerins-parlour-backend.vercel.app/bookings/${_id}`
             fetch(url, {
                 method: 'DELETE'
             })

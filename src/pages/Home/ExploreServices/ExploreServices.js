@@ -5,7 +5,7 @@ const ExploreServices = () => {
     const [allServices, setAllServices] = useState([])
 
     useEffect(() => {
-        fetch('https://jerins-parlour-backend.herokuapp.com/allServices')
+        fetch('https://jerins-parlour-backend.vercel.app/allServices')
             .then(res => res.json())
             .then(data => setAllServices(data))
     }, [])

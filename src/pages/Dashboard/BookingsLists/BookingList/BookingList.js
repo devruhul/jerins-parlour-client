@@ -8,7 +8,7 @@ const BookingList = ({ serviceImg, serviceDescription, orderStatus, serviceTitle
     const handleCancelOrder = (id) => {
         const result = window.confirm('Are you sure you want to cancel this order?')
         if (result) {
-            fetch(`https://jerins-parlour-backend.herokuapp.com/bookings/${_id}`, {
+            fetch(`https://jerins-parlour-backend.vercel.app/bookings/${_id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

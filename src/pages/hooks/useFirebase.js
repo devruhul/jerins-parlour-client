@@ -107,7 +107,7 @@ const useFirebase = () => {
 
     // // check if user is admin or not
     useEffect(() => {
-        fetch(`https://jerins-parlour-backend.herokuapp.com/users/${parlourUser?.email}`)
+        fetch(`https://jerins-parlour-backend.vercel.app/users/${parlourUser?.email}`)
             .then(res => res.json())
             .then(data => {
                 setAdmin(data.admin)
@@ -129,7 +129,7 @@ const useFirebase = () => {
 
     const saveParlourUser = (email, displayName, method) => {
         const user = { email, displayName }
-        fetch('https://jerins-parlour-backend.herokuapp.com/users', {
+        fetch('https://jerins-parlour-backend.vercel.app/users', {
             method: method,
             headers: {
                 'content-type': 'application/json'

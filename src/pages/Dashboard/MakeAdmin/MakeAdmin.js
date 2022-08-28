@@ -12,7 +12,7 @@ const MakeAdmin = () => {
     const handleMakeAdmin = (e) => {
         e.preventDefault();
         const user = { email };
-        fetch('https://jerins-parlour-backend.herokuapp.com/users/makeAdmin', {
+        fetch('https://jerins-parlour-backend.vercel.app/users/makeAdmin', {
             method: 'PUT',
             headers: {
                 'authorization': `Bearer ${authToken}`,

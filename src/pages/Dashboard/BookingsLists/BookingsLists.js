@@ -7,7 +7,7 @@ const BookingsLists = () => {
     const [bookingsList, setBookingsLists] = useState([]);
 
     useEffect(() => {
-        fetch(`https://jerins-parlour-backend.herokuapp.com/bookings/${parlourUser.email}`)
+        fetch(`https://jerins-parlour-backend.vercel.app/bookings/${parlourUser.email}`)
             .then(res => res.json())
             .then(data => setBookingsLists(data))
     }, [parlourUser.email]);

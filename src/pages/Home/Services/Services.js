@@ -7,7 +7,7 @@ const Services = () => {
 
 
     useEffect(() => {
-        fetch('https://jerins-parlour-backend.herokuapp.com/services')
+        fetch('https://jerins-parlour-backend.vercel.app/services')
             .then(res => res.json())
             .then(data => setServices(data))
     }, [])

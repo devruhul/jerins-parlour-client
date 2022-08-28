@@ -23,7 +23,7 @@ const AddService = () => {
             imageLink: '',
         });
 
-        fetch("https://jerins-parlour-backend.herokuapp.com/services", {
+        fetch("https://jerins-parlour-backend.vercel.app/services", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

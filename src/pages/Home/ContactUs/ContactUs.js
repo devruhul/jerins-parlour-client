@@ -17,7 +17,7 @@ const ContactUs = () => {
 
     const handleContact = (e) => {
         const newContact = { ...contact };
-        fetch('https://jerins-parlour-backend.herokuapp.com/contacts', {
+        fetch('https://jerins-parlour-backend.vercel.app/contacts', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(newContact)

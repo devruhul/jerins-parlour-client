@@ -24,7 +24,7 @@ const ServiceReview = () => {
             email: parlourUser?.email
         }
 
-        fetch('https://jerins-parlour-backend.herokuapp.com/reviews', {
+        fetch('https://jerins-parlour-backend.vercel.app/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
