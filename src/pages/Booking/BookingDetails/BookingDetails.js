@@ -36,7 +36,7 @@ const BookingDetails = () => {
     }
 
     useEffect(() => {
-        fetch(`https://jerins-parlour-backend.vercel.app/services/${id}`)
+        fetch(`https://jerins-parlour-backend.herokuapp.com/services/${id}`)
             .then(res => res.json())
             .then(data => setBooking(data)
             )
@@ -51,7 +51,7 @@ const BookingDetails = () => {
         })
 
         // send booking service data to server side
-        fetch('https://jerins-parlour-backend.vercel.app/bookings', {
+        fetch('https://jerins-parlour-backend.herokuapp.com/bookings', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

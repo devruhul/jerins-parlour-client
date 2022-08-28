@@ -5,7 +5,7 @@ const ManageServices = () => {
     const [handleServices, setHandleServices] = useState([]);
 
     useEffect(() => {
-        fetch('https://jerins-parlour-backend.vercel.app/allServices')
+        fetch('https://jerins-parlour-backend.herokuapp.com/allServices')
             .then(res => res.json())
             .then(data => setHandleServices(data))
     }, []);

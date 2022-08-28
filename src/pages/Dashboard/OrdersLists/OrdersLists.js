@@ -6,7 +6,7 @@ const OrdersLists = () => {
     const [orderLists, setOrderLists] = useState([])
 
     useEffect(() => {
-        fetch('https://jerins-parlour-backend.vercel.app/bookings')
+        fetch('https://jerins-parlour-backend.herokuapp.com/bookings')
             .then(res => res.json())
             .then(data => setOrderLists(data))
     }, [])
