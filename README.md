@@ -11,7 +11,6 @@ Here is the project live link [Jerins Palour live](https://jerins-parlour-client
 -   User can see all the reviews in the home page.
 -   Added private route for dashboard and services route.
 -   Added JWT token for authentication.
--   Added 
 -   Admin can add new services.
 -   Admin can see all the bookings in the dashboard.
 -   Admin can add new admin.
