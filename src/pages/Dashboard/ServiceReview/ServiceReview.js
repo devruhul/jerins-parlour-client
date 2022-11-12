@@ -24,20 +24,20 @@ const ServiceReview = () => {
             email: parlourUser?.email
         }
 
-        fetch('https://jerins-parlour-backend.herokuapp.com/reviews', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(reviewInfo)
+        fetch("https://jerins-parlour-backend.herokuapp.com/reviews", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(reviewInfo),
         })
-            .then(res => res.json())
-            .then(data => {
-                if (data.insertedId) {
-                    alert('Review Successfully')
-                    e.target.reset()
-                }
-            })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.insertedId) {
+              alert("Review Successfully");
+              e.target.reset();
+            }
+          });
 
         e.preventDefault();
     }
