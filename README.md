@@ -20,7 +20,7 @@ Here is the project live link [Jerins Palour live](https://jerins-parlour-client
 - Admin can change the order status.
 
 If you want to see the admin panel then you can use this email and password.
-parlour@admin.com, 123123
+parlour@admin.com, 123123 
 
 ## Technology
 
